@@ -479,14 +479,6 @@ export const AnalystView: React.FC = () => {
                   <ChannelBar split={overview.summary.channel_split} />
                 </div>
               </div>
-              <div className="text-[12px] leading-relaxed text-[#5C6E63]">
-                {overview.sources.checks} {overview.sources.recorded} {overview.sources.adults} The map counts checks, not people. {overview.sources.illustrative}
-                <span className="font-mono">
-                  {' '}
-                  Built with config {overview.built_with.config_fingerprint} · commit {overview.built_with.git_commit} · seed{' '}
-                  {overview.built_with.seed}; model from run {overview.model_run.config_fingerprint}.
-                </span>
-              </div>
             </div>
           )}
 
@@ -583,7 +575,7 @@ const ClimateChart: React.FC<{ climate: Climate }> = ({ climate }) => {
         </div>
       </div>
       <div className="text-[12px] leading-relaxed text-[#5C6E63]">
-        Hot day: {climate.hot_day_definition}. Bottom row: the month's highest heat index (°C). {climate.source}{' '}
+        Hot day: heat index of {climate.heat_index_hot_c}°C or more. Bottom row: the month's highest heat index. Source: ERA5-Land,{' '}
         {climate.period.label}.
       </div>
     </>
