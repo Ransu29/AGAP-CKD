@@ -1,0 +1,11 @@
+# Historical public climate + synthetic medical outcomes. Requires collect/prepare-climate.
+extends: public.yaml
+climate:
+  mode: era5_land
+  # arco reads the committed, checksummed ARCO extract in data/raw/era5_land/arco
+  # (December 1990 - September 2026; no Copernicus key needed). cds_grib reads the
+  # CDS GRIB archives, kept as an independent cross-check.
+  source: arco
+  processed_directory: data/processed/climate/laguna
+  minimum_date_coverage: 0.95
+  max_reassignment_km: 15     # lakeshore H3 cells whose grid point is over the lake take the nearest land cell

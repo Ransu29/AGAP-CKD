@@ -1,0 +1,8 @@
+# NFR-07 fast profile: 2,000 residents per cohort and 5 repetitions per scenario.
+# make all CONFIG=config/fast.yaml ; make experiments CONFIG=config/fast.yaml
+extends: params.yaml
+prototype:
+  n_train: 2000
+  n_validation: 1000
+  n_deployment: 2000
+  repetitions: 5

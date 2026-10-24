@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="AGAP-CKD">
+  <rect x="4" y="4" width="92" height="92" rx="26" fill="#17573A"/>
+  <path d="M56 8 C77 8 88 28 88 50 C88 72 77 92 56 92 C38 92 24 84 24 72 C24 62 37 58 37 50 C37 42 24 38 24 28 C24 16 38 8 56 8 Z" fill="#9FDDB6" transform="translate(19 18) scale(0.62)"/>
+  <circle cx="43" cy="49" r="5" fill="#22A75A"/>
+</svg>

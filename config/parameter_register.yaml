@@ -1,0 +1,154 @@
+# SIM-04 parameter register for config/params.yaml.
+# Every simulator parameter is classified as source-supported (with a source), derived (with the
+# derivation) or assumed (with a note). Settings are run or method choices, not claims about the
+# population. tests/test_parameter_register.py fails if a parameter is added without a class.
+# Aggregate prevalence (for example FNRI survey tables) must not be treated as evidence for an
+# individual-level correlation; no generator below is calibrated to more than an age-averaged
+# marginal, and only simulator.traits.dm_intercept is calibrated at all (measured biochemical
+# proxy, with the definition mismatch disclosed in its entry).
+classes: [source-supported, derived, assumed]
+
+parameters:
+  # Outcome definition (SIM-07)
+  outcome.egfr_threshold: {class: source-supported, source: "KDIGO 2024 CKD guideline: eGFR < 60 mL/min/1.73 m2"}
+  outcome.uacr_threshold: {class: source-supported, source: "KDIGO 2024 CKD guideline: uACR >= 30 mg/g"}
+
+  # Age handling (SIM-05)
+  simulator.age_center: {class: derived, derivation: "Centring constant for the logistic age terms; changes intercept meaning, not fitted behaviour"}
+  simulator.oldest_band_start: {class: derived, derivation: "Start of the open 80+ band in the WorldPop age-sex rasters"}
+  simulator.oldest_band_max_age: {class: assumed, note: "Upper age for drawing the open 80+ band uniformly over 80-95"}
+  simulator.adult_fraction_15_19: {class: derived, derivation: "Ages 18-19 are 2 of the 5 years in the 15-19 band, assuming ages are uniform within the band"}
+
+  # Hidden traits
+  simulator.traits.dm_intercept: {class: source-supported, source: "FNRI 2023 NNS (2024 National Nutrition Summit part 2, local PDF pages 326 and 329): measured high fasting blood glucose >=126 mg/dL, 7.5% at ages 20-59 (n=40,877) and 17.2% at 60+ (n=13,617), sample-weighted 9.9% at 20+. scripts/calibrate_traits.py solves the intercept on the Laguna WorldPop adult age distribution. Measured biochemical proxy for the simulator's self-reported 'told by a doctor' trait: undiagnosed cases are included, diet-controlled diagnosed cases are missed, and only the age-averaged marginal is matched."}
+  simulator.traits.dm_log_odds_per_year: {class: assumed, note: "Diabetes risk rises with age; the age slope is not calibrated (only the age-averaged marginal, see dm_intercept)"}
+  simulator.traits.htn_intercept: {class: assumed, note: "Hypertension generator; the FNRI 2023 NNS part 2 deck reports no blood pressure results, so no calibration is available"}
+  simulator.traits.htn_log_odds_per_year: {class: assumed, note: "Hypertension risk rises with age"}
+  simulator.traits.htn_dm_log_odds: {class: assumed, note: "Individual-level diabetes-hypertension association; no source yet"}
+  simulator.traits.family_history_prevalence: {class: assumed, note: "Family history of kidney disease"}
+  simulator.traits.outdoor_work_prevalence: {class: assumed, note: "Regular outdoor work"}
+  simulator.traits.dm_awareness: {class: assumed, note: "SIM-12: share of people with diabetes who know it and would report Yes; an undiagnosed share is common (the dialysis nurses reported most first-time patients were unaware of kidney involvement), but this value is not calibrated to a Philippine survey"}
+  simulator.traits.htn_awareness: {class: assumed, note: "SIM-12: share of people with hypertension who know it and would report Yes; not calibrated to a Philippine survey"}
+
+  # Laboratory synthesis (SIM-06)
+  simulator.laboratory.renal_subtype_share: {class: assumed, note: "Share of abnormal flags with low eGFR"}
+  simulator.laboratory.albumin_subtype_start: {class: assumed, note: "Abnormal flags with high uACR; the overlap with renal_subtype_share has both"}
+  simulator.laboratory.abnormal_egfr_range: {class: assumed, note: "Lower bound assumed; upper bound 59.9 sits just below outcome.egfr_threshold"}
+  simulator.laboratory.normal_egfr_range: {class: assumed, note: "Underlying eGFR range without low-eGFR damage; starts at the threshold so the distribution is continuous and day-0 measurement noise can cross 60 (SIM-11)"}
+  simulator.laboratory.normal_egfr_mean: {class: assumed, note: "SIM-11: centre of the truncated-normal underlying eGFR without kidney damage; typical adult values, not age-specific and not calibrated to a Philippine survey"}
+  simulator.laboratory.normal_egfr_sd: {class: assumed, note: "SIM-11: spread of underlying eGFR without kidney damage; keeps few people just above 60, unlike a uniform draw"}
+  simulator.laboratory.abnormal_uacr_median: {class: assumed, note: "Median uACR when albuminuric; floored at outcome.uacr_threshold"}
+  simulator.laboratory.normal_uacr_median: {class: assumed, note: "Median uACR when not albuminuric"}
+  simulator.laboratory.normal_uacr_max: {class: derived, derivation: "Upper truncation just below outcome.uacr_threshold so underlying normal values stay normal (truncated, not capped)"}
+  simulator.laboratory.uacr_log_sd: {class: assumed, note: "Between-person spread of uACR on the log scale"}
+
+  # Observation process (OBS-01)
+  simulator.observation.report_age_center: {class: derived, derivation: "Centring constant for the reporting age term"}
+  simulator.observation.report_log_odds_per_year: {class: assumed, note: "Reporting rises with age (MAR/MNAR)"}
+  simulator.observation.report_log_odds_per_km: {class: assumed, note: "Reporting falls with distance to the nearest service point (MAR/MNAR)"}
+  simulator.observation.completion_log_odds_per_km: {class: assumed, note: "Completion falls with distance; also prices assigned-distance changes in allocation"}
+  simulator.observation.proximity_scale_km: {class: assumed, note: "Distance scale of the invitation proximity term"}
+  simulator.observation.invitation_mcar: {class: assumed, note: "Round-0 invitation probability under MCAR"}
+  simulator.observation.invitation_nonreporter: {class: assumed, note: "Round-0 outreach invitation for nonreporters: base and proximity coefficient"}
+  simulator.observation.invitation_reporter: {class: assumed, note: "Round-0 invitation for reporters: base and proximity coefficient"}
+  prototype.report_rate: {class: assumed, note: "Baseline reporting probability"}
+  prototype.completion_rate: {class: assumed, note: "Baseline completion probability after invitation"}
+  prototype.report_mnar_log_odds: {class: assumed, note: "MNAR: reporting depends on the hidden outcome"}
+  prototype.completion_mnar_log_odds: {class: assumed, note: "MNAR: completion depends on the hidden outcome"}
+
+  # Outcome model
+  prototype.heat_or: {class: assumed, note: "Assumed heat effect per hot-dry score unit; experiments use 1.0, 1.2 and 1.5 (SIM-11)"}
+  prototype.outcome_intercept: {class: assumed, note: "Baseline log-odds of an abnormal initial screen"}
+  prototype.age_log_odds_per_year: {class: assumed, note: "Age effect on the abnormal screen"}
+  prototype.dm_log_odds: {class: assumed, note: "Diabetes effect on the abnormal screen"}
+  prototype.htn_log_odds: {class: assumed, note: "Hypertension effect on the abnormal screen"}
+  prototype.family_log_odds: {class: assumed, note: "Family-history effect on the abnormal screen"}
+  prototype.outdoor_log_odds: {class: assumed, note: "Outdoor-work effect on the abnormal screen"}
+  prototype.assumed_panel_cost_php: {class: assumed, note: "Cost of one completed initial panel in PHP; not a sourced price"}
+
+  # Engine 1 report details (SIM-02, E1-08)
+  simulator.report_details.prior_screen_rate: {class: assumed, note: "Prior kidney test in 12 months at age 40 without DM or HTN"}
+  simulator.report_details.prior_screen_log_odds_per_year: {class: assumed, note: "Prior testing rises with age"}
+  simulator.report_details.prior_screen_dm_log_odds: {class: assumed, note: "People with known diabetes are tested more often"}
+  simulator.report_details.prior_screen_htn_log_odds: {class: assumed, note: "People with known hypertension are tested more often"}
+  simulator.report_details.outdoor_hours_worker: {class: assumed, note: "Outdoor hours in 7 days for outdoor workers"}
+  simulator.report_details.outdoor_hours_other: {class: assumed, note: "Outdoor hours in 7 days for others"}
+  simulator.report_details.event_days_before_available: {class: assumed, note: "Days between the event date and when a report becomes available"}
+  reporting.availability_days_before_cutoff: {class: assumed, note: "Report arrival before the prediction cutoff; negative values test late reports"}
+
+  # SIM-09 longitudinal scenario
+  longitudinal.persistence_day: {class: derived, derivation: "180 days exceeds the KDIGO 3-month duration criterion"}
+  longitudinal.creatinine_cv: {class: source-supported, source: "EuBIVAS (4.4-4.7% healthy adults); Waikar et al. 2018, Am J Kidney Dis (5.4% CKD)"}
+  longitudinal.uacr_cv: {class: source-supported, source: "Waikar et al. 2018, Am J Kidney Dis (about 30-33% in CKD outpatients)"}
+  longitudinal.egfr_decline_per_year: {class: source-supported, source: "Baba et al. 2015, PLoS One (-1.07 per year); systematic review 0.4-1.1 per year in healthy adults"}
+  longitudinal.acute_event_rate: {class: assumed, note: "Hypothetical acute event; not AKI incidence"}
+  longitudinal.acute_creatinine_factor: {class: derived, derivation: "KDIGO AKI stage 1 creatinine threshold (1.5 times baseline), used only to size the change"}
+
+  # Engine 4 research demonstration
+  research.interest_shares: {class: assumed, note: "Initial research-interest states for the demonstration"}
+  research.later_withdrawal_share: {class: assumed, note: "Share of interested residents who later withdraw (E4-06)"}
+
+  # PRD v3 risk-check development cohort (src/agap/simulate/risk_check.py)
+  simulator.risk_check.age_groups: {class: derived, derivation: "PRD v3 questionnaire item 1 age groups"}
+  simulator.risk_check.age_group_bounds: {class: assumed, note: "Inclusive ages per PRD v3 group; the open 70+ group is drawn uniformly over 70-95, matching simulator.oldest_band_max_age"}
+  simulator.risk_check.age_group_shares: {class: derived, derivation: "Laguna adult shares from the collected WorldPop 2020 age-sex rasters (census-based modelled counts), split into single ages as in scripts/calibrate_traits.py; computed by scripts/calibrate_risk_check.py. The PSA census tables named in PRD v3 are not in the repository."}
+  simulator.risk_check.female_share: {class: derived, derivation: "Female share of Laguna adults in the WorldPop 2020 age-sex rasters (scripts/calibrate_risk_check.py)"}
+  simulator.risk_check.target_prevalence: {class: source-supported, source: "Tran et al. 2017, BMC Res Notes 10:523: 260 of 2,037 participants (12.76%) in Long An, Vietnam, with ACR >= 30 mg/g or MDRD eGFR < 60. Differences: a screening sample, not a Philippine population survey; MDRD, whereas the simulator uses CKD-EPI 2021; single-visit results overcount chronic disease."}
+  simulator.risk_check.outcome_intercept: {class: derived, derivation: "Monte Carlo bisection so the measured day-0 abnormal kidney screen, population level before routing, equals target_prevalence (scripts/calibrate_risk_check.py, 200,000 people, fixed seed)"}
+  simulator.risk_check.odds_ratios.age_40_49: {class: derived, derivation: "Thakkinstian et al. 2011 (BMC Nephrol 12:45, Table 2) OR 1.8 (95% CI 1.3-2.5) for ages 40-59 vs < 40, applied to both PRD v3 groups 40-49 and 50-59. SCORED age points (Bang 2007) are not odds ratios and were not used."}
+  simulator.risk_check.odds_ratios.age_50_59: {class: derived, derivation: "Thakkinstian 2011 OR 1.8 for ages 40-59 (shared with age_40_49; the paper does not split 40-49 from 50-59)"}
+  simulator.risk_check.odds_ratios.age_60_69: {class: source-supported, source: "Thakkinstian et al. 2011, Table 2: OR 4.1 (95% CI 2.6-6.3) vs < 40"}
+  simulator.risk_check.odds_ratios.age_70_plus: {class: source-supported, source: "Thakkinstian et al. 2011, Table 2: OR 8.3 (95% CI 4.7-14.4) vs < 40"}
+  simulator.risk_check.odds_ratios.female: {class: assumed, note: "Female sex is a SCORED item (Bang 2007, 1 point); the OR of 1.2 is an assumption because the paper's odds ratios were not retrieved"}
+  simulator.risk_check.odds_ratios.diabetes: {class: source-supported, source: "Thakkinstian et al. 2011, Table 2: OR 2.5 (95% CI 1.5-4.1)"}
+  simulator.risk_check.odds_ratios.hypertension: {class: source-supported, source: "Thakkinstian et al. 2011, Table 2: OR 2.3 (95% CI 1.6-3.2)"}
+  simulator.risk_check.odds_ratios.kidney_stones: {class: source-supported, source: "Thakkinstian et al. 2011, Table 2: OR 2.8 (95% CI 1.9-4.1)"}
+  simulator.risk_check.odds_ratios.heart_disease_stroke: {class: assumed, note: "History of cardiovascular disease is a SCORED item (Bang 2007, 1 point); OR 1.75 is the midpoint of the PRD v3 range 1.5-2 and is not a retrieved estimate"}
+  simulator.risk_check.odds_ratios.family_history: {class: assumed, note: "QKidney includes family history (Hippisley-Cox 2010) but no hazard ratio was extracted; 1.75 is the midpoint of the PRD v3 range"}
+  simulator.risk_check.odds_ratios.overweight: {class: derived, derivation: "Garofalo et al. 2017 (Kidney Int 91:1224-1235): overweight RR 1.06 (0.94-1.21) for low eGFR and 1.24 (0.98-1.58) for albuminuria, neither significant; 1.1 approximates the combined outcome. RR used as OR."}
+  simulator.risk_check.odds_ratios.obese: {class: derived, derivation: "Garofalo et al. 2017: obesity RR 1.28 (1.07-1.54) for low eGFR and 1.51 (1.36-1.67) for albuminuria; 1.4 approximates the combined outcome (eGFR < 60 or ACR >= 30). RR used as OR; at about 13% prevalence the approximation is loose."}
+  simulator.risk_check.odds_ratios.stopped_medicine: {class: derived, derivation: "Chang et al. 2015 (Medicine 94:e2051): oral antidiabetic non-adherence HR 1.11 (1.01-1.23) for ESRD, from a secondary table; Roy et al. 2013 (HR 0.67 for adherence) could not be retrieved. 1.2 sits in the PRD v3 range 1.1-1.5. The source outcome is ESRD, not an abnormal screen."}
+  simulator.risk_check.odds_ratios.heavy_outdoor_work: {class: assumed, note: "CKDu heat-stress mechanism (Flouris 2018 reports prevalence only; Johnson 2019); no usable effect size exists"}
+  simulator.risk_check.odds_ratios.community_heat_per_sd: {class: assumed, note: "Per SD of a synthetic community exposure; outcome generation only, never a risk-level input (ADR 0001). Same value as prototype.heat_or."}
+  simulator.risk_check.traits.kidney_stone_prevalence: {class: assumed, note: "Thai community surveys range from 0.38% to 16.9% (methods differ); no Philippine population estimate was found"}
+  simulator.risk_check.traits.heart_disease_intercept: {class: assumed, note: "Heart disease or stroke history at age 40 (log-odds); no Philippine calibration"}
+  simulator.risk_check.traits.heart_disease_log_odds_per_year: {class: assumed, note: "Cardiovascular history rises with age"}
+  simulator.risk_check.traits.bmi_mean: {class: derived, derivation: "Chosen so about 59% of adults have BMI >= 23, near the FNRI 2023 National Nutrition Survey figure of 57.1% overweight or obese among adults 20-59 (secondary report; the cut-off behind that figure is not confirmed)"}
+  simulator.risk_check.traits.bmi_sd: {class: assumed, note: "Between-person BMI spread"}
+  simulator.risk_check.traits.bmi_overweight_cut: {class: source-supported, source: "WHO Expert Consultation 2004, Lancet 363:157-163: Asian public-health action point 23 kg/m2"}
+  simulator.risk_check.traits.bmi_obese_cut: {class: source-supported, source: "WHO Expert Consultation 2004: Asian public-health action point 27.5 kg/m2"}
+  simulator.risk_check.reporting.dm_awareness: {class: derived, derivation: "Molenaar et al. 2007 (Eur J Public Health 17:199-205): self-reported diabetes sensitivity 58.9% against measurement"}
+  simulator.risk_check.reporting.htn_awareness: {class: derived, derivation: "Abalos et al. 2024 (J Gerontol A 79:glad155): 61.6% of hypertensive older Filipinos were aware (LSAHP 2018, ages 60+). Molenaar 2007 reports a lower 34.5% in the Netherlands."}
+  simulator.risk_check.reporting.unaware_dont_know: {class: assumed, note: "Share of people with an undiagnosed condition answering I don't know rather than No"}
+  simulator.risk_check.reporting.negative_dont_know: {class: assumed, note: "Share of people without the condition answering I don't know"}
+  simulator.risk_check.reporting.other_item_dont_know: {class: assumed, note: "I don't know rate for heart disease or stroke, kidney stones, family history and outdoor work"}
+  simulator.risk_check.reporting.bmi_dont_know: {class: assumed, note: "Share not knowing their height or weight"}
+  simulator.risk_check.reporting.bp_measured_past_year: {class: assumed, note: "Share with a BP reading in the past 12 months, among people asked item 7"}
+  simulator.risk_check.reporting.medicine_shares: {class: assumed, note: "Medicine use among people aware of diabetes or hypertension: regularly, sometimes miss, stopped, no medicine given. Abalos 2024 reports 51.5% of hypertensive older Filipinos untreated, which includes unaware people."}
+  simulator.risk_check.reporting.told_abnormal_given_damage: {class: assumed, note: "Share of people with kidney damage already told something was wrong; low because most first-time dialysis patients did not know (dialysis nurse interview, problem validation only)"}
+  simulator.risk_check.reporting.tested_normal_past_year: {class: assumed, note: "Share of people with a normal screen reporting a normal kidney test in the past 12 months"}
+  simulator.risk_check.laboratory.normal_egfr_range: {class: derived, derivation: "Truncation bounds starting at outcome.egfr_threshold so the underlying distribution is continuous"}
+  simulator.risk_check.laboratory.normal_egfr_mean: {class: assumed, note: "Centre of underlying eGFR without damage; typical adult values, not age-specific"}
+  simulator.risk_check.laboratory.normal_egfr_sd: {class: assumed, note: "Spread of underlying eGFR; bell-shaped so few people sit just above 60"}
+
+  # Analyst view simulated checks (PRD v3 analyst view; no SMS or field data exist yet, so all are illustrative)
+  simulator.analyst_checks.total_checks: {class: assumed, note: "Province-wide checks in the 12-month demo period, about the design mock-up's 4,318; spread across municipalities in proportion to adults (PSA 2024 Census municipal population x Laguna 18+ share; team decision 24 Oct 2026)"}
+  simulator.analyst_checks.channel_shares.app: {class: assumed, note: "Illustrative channel mix, near the design mock-up (39%); no channel has collected data"}
+  simulator.analyst_checks.channel_shares.field: {class: assumed, note: "Illustrative channel mix, near the design mock-up (41%)"}
+  simulator.analyst_checks.channel_shares.sms: {class: assumed, note: "Illustrative channel mix, near the design mock-up (20%)"}
+  simulator.analyst_checks.sms_reminder_opt_in: {class: assumed, note: "Share of SMS checks accepting reminders; no SMS pilot data"}
+  simulator.analyst_checks.done_reply_share: {class: assumed, note: "Medium/High SMS opt-ins replying DONE (self-reported testing); no pilot data"}
+  simulator.analyst_checks.field_sync_lag_hours: {class: assumed, note: "Range of hours since a municipality's last field-tablet sync; illustrative"}
+
+settings:
+  prototype.geography_mode: "Data source switch (fixture or collected public data)"
+  prototype.n_train: "Cohort size (NFR-07 profiles)"
+  prototype.n_validation: "Cohort size (NFR-07 profiles)"
+  prototype.n_deployment: "Cohort size (NFR-07 profiles)"
+  prototype.repetitions: "Repetitions per scenario (NFR-07 profiles)"
+  prototype.mechanism: "Missingness scenario selector (MCAR, MAR, MNAR)"
+  prototype.allocation_model: "Method choice: saved model whose scores rank pipeline invitations; matches the app's default planning model"
+  prototype.min_validation_positives: "Method guard: fewest validation positives for a supported threshold (E3-10)"
+  prototype.weight_quantile: "Method choice: inverse-probability weight cap (E3-13)"
+  prototype.min_probability: "Numerical guard: probabilities clipped away from 0 and 1"
+  longitudinal.followup_days: "Design: SIM-09 measurement days"

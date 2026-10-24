@@ -1,0 +1,760 @@
+{
+  "source": "Copernicus ERA5-Land hourly reanalysis via the ECMWF ARCO Zarr data lake",
+  "source_mode": "arco",
+  "source_url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+  "arco_extract": {
+    "stores": {
+      "t2m": "https://arco.datastores.ecmwf.int/cadl-arco-geo-007/arco/reanalysis_era5_land/sfc-2m-temperature/geoChunked.zarr",
+      "tp": "https://arco.datastores.ecmwf.int/cadl-arco-geo-009/arco/reanalysis_era5_land/sfc-pressure-precipitation/geoChunked.zarr"
+    },
+    "retrieved_at_utc": "2026-10-18T21:23:53.319995+00:00"
+  },
+  "requested_bbox_north_west_south_east": [
+    14.7,
+    120.9,
+    13.8,
+    121.7
+  ],
+  "local_timezone": "Asia/Manila",
+  "temperature_unit": "degrees Celsius",
+  "precipitation_unit": "millimetres",
+  "source_archives": [
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1990.parquet",
+      "sha256": "8eb499cd92bc9bc8086575519eda0962ee9a619d5f60324b272a106415302d2d",
+      "bytes": 502163,
+      "first_utc": "1990-12-01 00:00:00+00:00",
+      "last_utc": "1990-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1991.parquet",
+      "sha256": "bd244e81c9babcd6bd5d5dd7edf2dab75046a3b1339deba1c88a5eb445f45a71",
+      "bytes": 5449435,
+      "first_utc": "1991-01-01 00:00:00+00:00",
+      "last_utc": "1991-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1992.parquet",
+      "sha256": "47c3d8306595afea0336f209d3d4f0ebf2f6c621d19a2d576f75a3977f6f9c74",
+      "bytes": 5737529,
+      "first_utc": "1992-01-01 00:00:00+00:00",
+      "last_utc": "1992-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1993.parquet",
+      "sha256": "2284335775d5913cad35102448d4ce6f0f12af768a3bd1222b245e9b017d2af7",
+      "bytes": 5470920,
+      "first_utc": "1993-01-01 00:00:00+00:00",
+      "last_utc": "1993-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1994.parquet",
+      "sha256": "da7511747502151aff7561c8a29e5d35195f08ece0c65bfde8804feeb33ef084",
+      "bytes": 5461240,
+      "first_utc": "1994-01-01 00:00:00+00:00",
+      "last_utc": "1994-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1995.parquet",
+      "sha256": "488a2cd496cc5f38bf347543c67b9568b95f06d5fcec418ad4d14d2e7c2b5918",
+      "bytes": 5509914,
+      "first_utc": "1995-01-01 00:00:00+00:00",
+      "last_utc": "1995-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1996.parquet",
+      "sha256": "4ff449d58952e6787b3a40cf461462e5450ff478043fb7eb327a44396db3adda",
+      "bytes": 5805383,
+      "first_utc": "1996-01-01 00:00:00+00:00",
+      "last_utc": "1996-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1997.parquet",
+      "sha256": "ff0ef2e7ed47d285de07efb8d6af61afa9d69d2f741e6c53e64e5d5e69c38b64",
+      "bytes": 5374786,
+      "first_utc": "1997-01-01 00:00:00+00:00",
+      "last_utc": "1997-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1998.parquet",
+      "sha256": "520595ca5c49e766cc21052a5a7820a833b7cd257c0837082f43643ecace743c",
+      "bytes": 5376103,
+      "first_utc": "1998-01-01 00:00:00+00:00",
+      "last_utc": "1998-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_1999.parquet",
+      "sha256": "f7a7cc6eda1a20455f12e16887a1af9836aa640c68251279aa175de0358ba138",
+      "bytes": 5522911,
+      "first_utc": "1999-01-01 00:00:00+00:00",
+      "last_utc": "1999-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2000.parquet",
+      "sha256": "25449db4b8de08efae0ff698515fc596b398d92b53133dabea14f10f3a6e2268",
+      "bytes": 5885360,
+      "first_utc": "2000-01-01 00:00:00+00:00",
+      "last_utc": "2000-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2001.parquet",
+      "sha256": "ef9488d05633f985e989f5cc1c69a4bf096193bdd50564e9c236efe4be434fee",
+      "bytes": 5500323,
+      "first_utc": "2001-01-01 00:00:00+00:00",
+      "last_utc": "2001-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2002.parquet",
+      "sha256": "293b459b4e101d5d0bb1d6335725865aa86a3600d8fbb9d5e49a2822698851ed",
+      "bytes": 5476734,
+      "first_utc": "2002-01-01 00:00:00+00:00",
+      "last_utc": "2002-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2003.parquet",
+      "sha256": "b58a41c999ec3e3bcacd37a2816ada8322a20087df997bfb684f42e3dee98a4c",
+      "bytes": 5444257,
+      "first_utc": "2003-01-01 00:00:00+00:00",
+      "last_utc": "2003-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2004.parquet",
+      "sha256": "e9708d096479386e5c2158cc3e229dbeeb47ef6a97b8c4dc0af53651d8fed560",
+      "bytes": 5737281,
+      "first_utc": "2004-01-01 00:00:00+00:00",
+      "last_utc": "2004-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2005.parquet",
+      "sha256": "611c91824e04e8a827d4cdfc92235ce09ffd84806e3d093bddebe9cdee2bdeab",
+      "bytes": 5491917,
+      "first_utc": "2005-01-01 00:00:00+00:00",
+      "last_utc": "2005-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2006.parquet",
+      "sha256": "7c9ee7d7d1037262fe0617da88cfad4304f58b1595cfaf3ffa958ff833e6f55d",
+      "bytes": 5472280,
+      "first_utc": "2006-01-01 00:00:00+00:00",
+      "last_utc": "2006-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2007.parquet",
+      "sha256": "8ddede224abc7968c64cac2183c7561d95142192712b90cda54f6e7bf7e747c0",
+      "bytes": 5454893,
+      "first_utc": "2007-01-01 00:00:00+00:00",
+      "last_utc": "2007-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2008.parquet",
+      "sha256": "1013be505b3320e9e16474643cd51d3b0392ff6afb0e59ea57e133e8ae40fe63",
+      "bytes": 5822197,
+      "first_utc": "2008-01-01 00:00:00+00:00",
+      "last_utc": "2008-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2009.parquet",
+      "sha256": "7b447cc48915d161ba6db59e3d70809a2993fcf65e87050de2ebb3f1fa256406",
+      "bytes": 5503546,
+      "first_utc": "2009-01-01 00:00:00+00:00",
+      "last_utc": "2009-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2010.parquet",
+      "sha256": "9ae628c709396101b93a4b92e4acc4db0432091510ec436e013212eab5b358a4",
+      "bytes": 5409053,
+      "first_utc": "2010-01-01 00:00:00+00:00",
+      "last_utc": "2010-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2011.parquet",
+      "sha256": "1b8a4b4b0859ee76bb687b97c6db7a51fa4d0718693b66b61109863ab6e0f9e4",
+      "bytes": 5508987,
+      "first_utc": "2011-01-01 00:00:00+00:00",
+      "last_utc": "2011-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2012.parquet",
+      "sha256": "8a7057ff08f5c8303a9e59df4b21c6def1744275887e906f02138bece5e3ec07",
+      "bytes": 5758316,
+      "first_utc": "2012-01-01 00:00:00+00:00",
+      "last_utc": "2012-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2013.parquet",
+      "sha256": "b2b5d8fba9ecac58cb79ef50d748600e4e775269dd9bb57f103c02f518705d47",
+      "bytes": 5485716,
+      "first_utc": "2013-01-01 00:00:00+00:00",
+      "last_utc": "2013-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2014.parquet",
+      "sha256": "3f0bdea144b891a34f23ed4b838647319e94f975ac50d01009ded98854fe4d5a",
+      "bytes": 5481571,
+      "first_utc": "2014-01-01 00:00:00+00:00",
+      "last_utc": "2014-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2015.parquet",
+      "sha256": "d6b54cd0541660c51fd534e7d88b06e66f07f7c4dde66e796cacf7f4a51945bf",
+      "bytes": 5411567,
+      "first_utc": "2015-01-01 00:00:00+00:00",
+      "last_utc": "2015-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2016.parquet",
+      "sha256": "ded0bccda3b3d60df8d454c9c5e17e55d74b69580d882f5cf83b7f7427ae8f5d",
+      "bytes": 5760383,
+      "first_utc": "2016-01-01 00:00:00+00:00",
+      "last_utc": "2016-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2017.parquet",
+      "sha256": "bc56d6a899facb1db1be7a16a719dac86202c5d3435118631a35fa19620dfee8",
+      "bytes": 5478291,
+      "first_utc": "2017-01-01 00:00:00+00:00",
+      "last_utc": "2017-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2018.parquet",
+      "sha256": "a85a074b13528c83541128e027a7cabe704b4f08bc1235a571fa5349efe87592",
+      "bytes": 5447398,
+      "first_utc": "2018-01-01 00:00:00+00:00",
+      "last_utc": "2018-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2019.parquet",
+      "sha256": "6818956f144d83b44a1025963dfd7894c9d1205210eb36865d2c480b3c21ecd4",
+      "bytes": 5370291,
+      "first_utc": "2019-01-01 00:00:00+00:00",
+      "last_utc": "2019-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2020.parquet",
+      "sha256": "cd652f43d9abdb6afee54bed3ffb1ac35cb85443b7aeffdfae1809a7e9e9e0f3",
+      "bytes": 5746164,
+      "first_utc": "2020-01-01 00:00:00+00:00",
+      "last_utc": "2020-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2021.parquet",
+      "sha256": "3273447617b530943de061c23ccbb7039dbb61317ffe6f3a79faba37ac99d9f6",
+      "bytes": 5469387,
+      "first_utc": "2021-01-01 00:00:00+00:00",
+      "last_utc": "2021-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2022.parquet",
+      "sha256": "9d6fd7a0bfcb0b664d0e3fbc67fe9ea6e866e0e5f53d02e0bfbb6f81a397a67e",
+      "bytes": 5513157,
+      "first_utc": "2022-01-01 00:00:00+00:00",
+      "last_utc": "2022-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2023.parquet",
+      "sha256": "1b0c4db4ad4ec7962b075b5d195f2e3909e118bfccdbe607dccb1fc3321088ad",
+      "bytes": 5499960,
+      "first_utc": "2023-01-01 00:00:00+00:00",
+      "last_utc": "2023-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2024.parquet",
+      "sha256": "3aa81d61aebe51d973d9f32971e62234b393560c03fd22fd2cd3b5a51cb044cb",
+      "bytes": 5714133,
+      "first_utc": "2024-01-01 00:00:00+00:00",
+      "last_utc": "2024-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2025.parquet",
+      "sha256": "6372ff1fa44a086979457c926568f74d7faf3d2c0ee342a73758367c2a2d7d56",
+      "bytes": 5521540,
+      "first_utc": "2025-01-01 00:00:00+00:00",
+      "last_utc": "2025-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/arco/era5_land_arco_2026.parquet",
+      "sha256": "77eadf05296c7d177a7934142fb50bf2f469ab837526fc2661c1bab69f40d604",
+      "bytes": 3736421,
+      "first_utc": "2026-01-01 00:00:00+00:00",
+      "last_utc": "2026-09-30 23:00:00+00:00"
+    }
+  ],
+  "processor_sha256": "688e11a92165ce151ded27a786620cbb07c7ea35a74b9494ed1849fb1d3fcfca",
+  "first_local_day": "1990-12-01",
+  "last_local_day": "2026-10-01",
+  "grid_cells": 90,
+  "daily_rows": 1178010,
+  "complete_daily_rows": 903003,
+  "baseline_start": 1991,
+  "baseline_end": 2020,
+  "window_days": 30,
+  "short_window_days": 7,
+  "short_window_rule": "7 full local days preceding cutoff, cutoff day excluded; descriptive summary with its own completeness flag (complete_7d), not used by the hot\u2013dry score",
+  "baseline_definition": "Means and sample standard deviations of the 30-day mean of daily maximum temperature and 30-day rainfall total, grouped by grid cell and cutoff calendar month, among complete cutoff windows in the declared baseline years; at least 90% valid windows in every baseline year/month",
+  "baseline_minimum_year_month_coverage": 0.9,
+  "rainfall_method": "ARCO hourly precipitation, de-accumulated by ECMWF (verified equal to our CDS GRIB de-accumulation within GRIB packing precision). Rounding noise down to -0.001 mm becomes 0; more negative values remain missing. Interval ending at local midnight belongs to preceding day.",
+  "daily_completeness": "24 valid distinct local-hour observations required separately for temperature and precipitation; incomplete variables remain missing",
+  "cutoff_rule": "Only the 30 full local days preceding cutoff are used; cutoff day is excluded",
+  "index_formula": "((preceding_mean_tmax_c - baseline_mean_30day_mean_daily_tmax_c) / baseline_sd_30day_mean_daily_tmax_c + (baseline_rainfall_mean - preceding_precip_mm) / baseline_rainfall_sd) / 2",
+  "constant_reference_rule": "Reference SD below1e-8 uses unit scale and is flagged. This is a descriptive index, not a standard-normal score.",
+  "replay_complete_rows": 144831,
+  "replay_rows": 188910,
+  "cell_readiness": [
+    {
+      "era5_cell": "13.8,120.9",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.8,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.8,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.8,121.2",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.8,121.3",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.8,121.4",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.8,121.5",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.8,121.6",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.8,121.7",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,120.9",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,121.2",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,121.3",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,121.4",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,121.6",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "13.9,121.7",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,120.9",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,121.2",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,121.3",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,121.4",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,121.6",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.0,121.7",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,120.9",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,121.2",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,121.3",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,121.4",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,121.6",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.1,121.7",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,120.9",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,121.2",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,121.3",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,121.4",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,121.6",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.2,121.7",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,120.9",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,121.2",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,121.3",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,121.4",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,121.6",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.3,121.7",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,120.9",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,121.1",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,121.2",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,121.3",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,121.4",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,121.6",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.4,121.7",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,120.9",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,121.0",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,121.2",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,121.3",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,121.4",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,121.6",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.5,121.7",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,120.9",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,121.2",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,121.3",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,121.4",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,121.6",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.6,121.7",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,120.9",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,121.0",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,121.1",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,121.2",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,121.3",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,121.4",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,121.5",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,121.6",
+      "complete_replay_windows": 2099,
+      "total_replay_windows": 2099
+    },
+    {
+      "era5_cell": "14.7,121.7",
+      "complete_replay_windows": 0,
+      "total_replay_windows": 2099
+    }
+  ],
+  "limitations": [
+    "Reanalysis represents gridded conditions, not individual exposure.",
+    "Rainfall deficit and temperature anomaly are descriptive; their health effects remain assumed in synthetic outcomes.",
+    "Missing/coastal cells are retained and cannot produce a climate score without a complete reference and window.",
+    "This hot\u2013dry score is not PAGASA's humidity-based heat index."
+  ]
+}

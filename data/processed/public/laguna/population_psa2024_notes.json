@@ -1,0 +1,8 @@
+{
+  "source": "Philippine Statistics Authority, 2024 Census of Population (reference date 1 July 2024), via OpenSTAT tables 0041A6DTPH3 (municipal totals) and 0201A6DPAG0 (household population by age, province)",
+  "method": "Adults 18+ per municipality = 2024 total population x Laguna's 18+ share of household population (0.7094); ages 18-19 are 2/5 of the 15-19 band. Age-group shares from the same Laguna table.",
+  "caveat": "PSA publishes age groups by province, not by municipality, so every municipality gets Laguna's adult share.",
+  "province_total_population": 3687345,
+  "adult_share": 0.70944,
+  "script": "scripts/collect_psa_population.py"
+}

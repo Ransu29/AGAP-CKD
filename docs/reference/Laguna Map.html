@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8">
+<script src="https://unpkg.com/d3@7.9.0/dist/d3.min.js" integrity="sha384-CjloA8y00+1SDAUkjs099PVfnY2KmDC2BZnws9kh8D/lX1s46w6EPhpXdqMfjK6i" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/topojson-client@3.1.0/dist/topojson-client.min.js" integrity="sha384-Ukv1p/xTma6P4/2bY5KzWBw+ydSpXmhCMtyciIQVDJ1RmOxtCYNMF1uXT9T63H67" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+html,body{margin:0;height:100%;background:#fff;font-family:'Nunito',sans-serif;color:#1B2A22;overflow:hidden}
+#map{width:100%;height:100%;display:block}
+.m{stroke:#fff;stroke-width:1.5;cursor:pointer;transition:fill .15s}
+.m:hover{stroke:#1B2A22;stroke-width:2}
+.sel{stroke:#1B2A22;stroke-width:3}
+.lbl{font-size:11px;font-weight:800;pointer-events:none;text-anchor:middle}
+#tip{position:absolute;pointer-events:none;background:#1B2A22;color:#fff;border-radius:16px;padding:12px 14px;font-size:13px;line-height:1.45;min-width:180px;box-shadow:0 10px 24px rgba(27,42,34,.25);opacity:0;transition:opacity .12s}
+#tip b{font-size:15px;font-weight:800;display:block;margin-bottom:2px}
+#tip .s{color:#B9D9C6}
+#tip .w{color:#F7DE8A}
+</style></head><body>
+<svg id="map"></svg><div id="tip"></div>
+<script>
+const D={"Alaminos":[35,47],"Bay":[40,64],"Biñan":[36,260],"Cabuyao":[38,214],"Calamba":[42,612],"Calauan":[43,55],"Cavinti":[45,23],"Famy":[43,14],"Kalayaan":[37,22],"Liliw":[48,44],"Los Baños":[33,188],"Luisiana":[0,7],"Lumban":[44,29],"Mabitac":[41,8],"Magdalena":[46,31],"Majayjay":[51,26],"Nagcarlan":[50,90],"Paete":[48,33],"Pagsanjan":[41,66],"Pakil":[46,28],"Pangil":[49,19],"Pila":[39,72],"Rizal":[52,18],"San Pablo":[39,340],"San Pedro":[34,182],"Santa Cruz":[47,233],"Santa Maria":[0,6],"Santa Rosa":[31,301],"Siniloan":[45,57],"Victoria":[44,41]};
+const color=v=>v<34?'#DDF1E4':v<40?'#9FDDB6':v<45?'#5CC487':v<50?'#22A75A':'#17573A';
+const ink=v=>v<45?'#17573A':'#fff';
+const nm=p=>p.adm3_en.replace('City of ','');
+fetch('data/laguna-municities.topo.json').then(r=>r.json()).then(topo=>{
+  const fc=topojson.feature(topo,topo.objects[Object.keys(topo.objects)[0]]);
+  const svg=d3.select('#map'),W=innerWidth,H=innerHeight;
+  const proj=d3.geoMercator().fitExtent([[16,16],[W-16,H-16]],fc),path=d3.geoPath(proj);
+  const tip=document.getElementById('tip');
+  const lake=proj([121.25,14.37]);
+  svg.append('text').attr('x',lake[0]).attr('y',lake[1]).attr('text-anchor','middle').attr('fill','#7FA08C').attr('font-size',14).attr('font-weight',700).attr('letter-spacing','.06em').text('Laguna de Bay');
+  const g=svg.append('g');
+  g.selectAll('path').data(fc.features).join('path')
+    .attr('class',d=>'m'+(nm(d.properties)==='Calamba'?' sel':''))
+    .attr('d',path)
+    .attr('fill',d=>{const [v,n]=D[nm(d.properties)];return n<10?'#E3E8E4':color(v)})
+    .attr('fill-opacity',d=>{const n=D[nm(d.properties)][1];return n>=10&&n<50?.45:1})
+    .on('mousemove',(e,d)=>{
+      const name=nm(d.properties),[v,n]=D[name];
+      tip.innerHTML=n<10?`<b>${name}</b><span class="s">${n} checks · too few to show</span>`
+        :`<b>${name}</b>Medium/High: ${v}% <span class="s">(${v-4}–${v+4}%)</span><br><span class="s">${n} checks</span>${n<50?'<br><span class="w">Under 50 checks: shown faded</span>':''}`;
+      const x=Math.min(e.clientX+14,W-200),y=Math.min(e.clientY+14,H-90);
+      tip.style.left=x+'px';tip.style.top=y+'px';tip.style.opacity=1;
+    })
+    .on('mouseleave',()=>tip.style.opacity=0)
+    .on('click',(e,d)=>{g.selectAll('path').classed('sel',x=>x===d);parent.postMessage({agapSelect:nm(d.properties)},'*')});
+  g.selectAll('text').data(fc.features.filter(d=>D[nm(d.properties)][1]>=50).sort((a,b)=>D[nm(b.properties)][1]-D[nm(a.properties)][1])).join('text')
+    .attr('class','lbl').attr('transform',d=>`translate(${path.centroid(d)})`)
+    .attr('fill',d=>ink(D[nm(d.properties)][0])).text(d=>nm(d.properties));
+  const placed=[];
+  g.selectAll('text.lbl').each(function(){const r=this.getBoundingClientRect(),b={x:r.left,y:r.top,width:r.width,height:r.height};if(placed.some(p=>b.x<p.x+p.width&&b.x+b.width>p.x&&b.y<p.y+p.height&&b.y+b.height>p.y))this.remove();else placed.push(b);});
+});
+</script></body></html>

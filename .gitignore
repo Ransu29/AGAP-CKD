@@ -1,0 +1,61 @@
+# Data: never commit raw or generated data (keep folder placeholders)
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+!data/synthetic/.gitkeep
+*.nc
+*.tif
+*.tiff
+*.parquet
+*.gpkg
+# Shared ERA5-Land ARCO extract (CC BY 4.0), so the team can prepare climate without a Copernicus key
+!data/raw/era5_land/arco/*.parquet
+# Raw downloads re-fetched by scripts/collect_psa_population.py and scripts/collect_heat_index.py
+data/raw/psa/
+data/raw/open_meteo/
+*.partial
+
+# Generated outputs (keep folder placeholders)
+outputs/figures/*
+outputs/tables/*
+outputs/runs/
+outputs/experiments/
+outputs/benchmarks/
+outputs/browser-verification/
+outputs/workflow-demo/
+outputs/latest_run.json
+# PRD v3 risk-level artifacts (make triage)
+outputs/model_clinical.joblib
+outputs/triage_*
+outputs/analyst/
+outputs/validation_*.csv
+# Per-origin map style URLs are resolved when a browser opens the app.
+app/static/maps/laguna/style-runtime-*.json
+data/reports/
+!outputs/figures/.gitkeep
+!outputs/tables/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Secrets and credentials
+.env
+.cdsapirc
+
+# Editors and OS
+.vscode/
+.idea/
+.zcode/
+.codex/
+.DS_Store
+Thumbs.db
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/

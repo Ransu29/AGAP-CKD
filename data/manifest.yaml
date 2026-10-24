@@ -1,0 +1,879 @@
+checked_utc: '2026-10-19T11:22:31.347725+00:00'
+datasets:
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel (all ages)
+  processing: Downloaded only; the model uses the age-sex rasters (worldpop_age_sex)
+  id: worldpop_population
+  path: worldpop/phl_ppp_2020_1km_Aggregated.tif
+  url: https://data.worldpop.org/GIS/Population/Global_2000_2020_1km/2020/PHL/phl_ppp_2020_1km_Aggregated.tif
+  license: CC BY 4.0; attribute WorldPop and original release
+  limitations: 2020 modeled all-age population; 1 km raster, not resident addresses.
+    Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained counts.
+    Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained counts.
+  status: downloaded
+  bytes: 2004736
+  sha256: db87b488519157ec83fb43e2c867016ca72115fde193a9565b650ee35d6699fd
+  checked_utc: '2026-10-19T11:18:11.396774+00:00'
+- publisher: Philippine Health Insurance Corporation (PhilHealth)
+  release: Accredited YAKAP facility register (PDF), current at retrieval
+  represented_dates: Snapshot at the retrieval date
+  attribution: PhilHealth
+  crs: None (no coordinates)
+  units: Facility names and addresses
+  resolution: Facility level, without coordinates
+  missing_values: Rows that cannot be parsed are not added
+  processing: Laguna section parsed into clinic_verification_queue.csv (names only,
+    coordinates unverified)
+  id: yakap_register
+  path: philhealth/YAKAP.pdf
+  url: https://www.philhealth.gov.ph/partners/providers/facilities/accredited/YAKAP.pdf
+  license: Public official register; redistribution terms not established
+  limitations: Current snapshot; names/addresses require coordinate verification.
+    No panel capacity established.
+  status: downloaded
+  bytes: 5755769
+  sha256: 2b288424cff77a37f2a31a02470165469be9877b021011966eceea52eceabf55
+  checked_utc: '2026-10-19T11:16:12.515763+00:00'
+- publisher: DOST-PAGASA
+  release: ENSO Advisory No. 7 (PDF)
+  represented_dates: Published 2024-01-05
+  attribution: DOST-PAGASA
+  crs: None
+  units: Narrative advisory
+  resolution: National
+  missing_values: Not applicable
+  processing: Stored only; not used in analysis (E2-05)
+  id: pagasa_2024_01
+  path: pagasa/2024_01_05_enso.pdf
+  url: https://pubfiles.pagasa.dost.gov.ph/pagasaweb/files/climate/elninolanina/01052024_ENSO_Advisory7_OS.pdf
+  license: Public official advisory; redistribution terms not established
+  limitations: One published advisory; not a complete historical series. Publication
+    date 2024-01-05.
+  status: downloaded
+  bytes: 131255
+  sha256: 5d523ef3141657105245300e22b7c75179b61d87d22c70cb81a44aa3a9334a3c
+  checked_utc: '2026-10-19T11:16:12.500820+00:00'
+- publisher: DOST Food and Nutrition Research Institute (FNRI)
+  release: 2023 National Nutrition Survey results, 2024 National Nutrition Summit
+    part 2 (PDF)
+  represented_dates: 2023 survey
+  attribution: DOST-FNRI
+  crs: None
+  units: Survey prevalence tables
+  resolution: National and regional
+  missing_values: Not applicable
+  processing: Stored for definition review; no parameters extracted yet (SIM-04)
+  id: fnri_2023_results
+  path: fnri/2023_nns_clinical_results.pdf
+  url: https://enutrition.fnri.dost.gov.ph/uploads/2024%20National%20Nutrition%20Summit_Part%202.pdf
+  license: Public report; redistribution terms not established
+  limitations: Definitions and denominators must be reviewed before parameter extraction;
+    no automatic DM/HTN calibration.
+  status: downloaded
+  bytes: 19990743
+  sha256: f24ffe607ab8256b2a7e8205c1001aa003bf65ea1012b2bb26a2aea7c81a1f46
+  checked_utc: '2026-10-19T11:16:12.548818+00:00'
+- publisher: geoBoundaries (William & Mary geoLab); source data NAMRIA, PSA and OCHA
+    Philippines
+  release: gbOpen PHL ADM2/ADM3 simplified; see the release metadata file for build
+    date
+  represented_dates: 2020 boundaries (boundaryYearRepresented)
+  attribution: geoBoundaries (Runfola et al., 2020) and the original sources named
+    in the release metadata
+  crs: EPSG:4326
+  units: Polygon geometry in decimal degrees
+  resolution: Simplified polygons; not survey-grade
+  missing_values: Not applicable; a missing province or municipality stops the build
+    (DATA-03)
+  processing: Province selected by name; municipalities matched by representative
+    point; border H3 cells take the closest municipality polygon
+  id: boundary_metadata_2
+  path: boundaries/ADM2_metadata.json
+  url: https://www.geoboundaries.org/api/current/gbOpen/PHL/ADM2/
+  license: See boundary metadata
+  limitations: Release metadata
+  status: downloaded
+  bytes: 1878
+  sha256: 1af20b55c9a716cf35be99030908a3a8a4cb275da24441928b83eccff950d5e4
+  checked_utc: '2026-10-19T11:16:12.501518+00:00'
+- publisher: geoBoundaries (William & Mary geoLab); source data NAMRIA, PSA and OCHA
+    Philippines
+  release: gbOpen PHL ADM2/ADM3 simplified; see the release metadata file for build
+    date
+  represented_dates: 2020 boundaries (boundaryYearRepresented)
+  attribution: geoBoundaries (Runfola et al., 2020) and the original sources named
+    in the release metadata
+  crs: EPSG:4326
+  units: Polygon geometry in decimal degrees
+  resolution: Simplified polygons; not survey-grade
+  missing_values: Not applicable; a missing province or municipality stops the build
+    (DATA-03)
+  processing: Province selected by name; municipalities matched by representative
+    point; border H3 cells take the closest municipality polygon
+  id: boundary_adm2
+  path: boundaries/PHL_ADM2_simplified.geojson
+  url: https://github.com/wmgeolab/geoBoundaries/raw/41af8f1/releaseData/gbOpen/PHL/ADM2/geoBoundaries-PHL-ADM2_simplified.geojson
+  license: Creative Commons Attribution 3.0 Intergovernmental Organisations (CC BY
+    3.0 IGO)
+  limitations: Simplified 2020 boundaries; not survey-grade.
+  status: downloaded
+  bytes: 3140454
+  sha256: fa77b9f17db2e419acaae714a935f7812be4409e2983675d34020e8426a3e189
+  checked_utc: '2026-10-19T11:16:12.509987+00:00'
+- publisher: geoBoundaries (William & Mary geoLab); source data NAMRIA, PSA and OCHA
+    Philippines
+  release: gbOpen PHL ADM2/ADM3 simplified; see the release metadata file for build
+    date
+  represented_dates: 2020 boundaries (boundaryYearRepresented)
+  attribution: geoBoundaries (Runfola et al., 2020) and the original sources named
+    in the release metadata
+  crs: EPSG:4326
+  units: Polygon geometry in decimal degrees
+  resolution: Simplified polygons; not survey-grade
+  missing_values: Not applicable; a missing province or municipality stops the build
+    (DATA-03)
+  processing: Province selected by name; municipalities matched by representative
+    point; border H3 cells take the closest municipality polygon
+  id: boundary_metadata_3
+  path: boundaries/ADM3_metadata.json
+  url: https://www.geoboundaries.org/api/current/gbOpen/PHL/ADM3/
+  license: See boundary metadata
+  limitations: Release metadata
+  status: downloaded
+  bytes: 1920
+  sha256: 9563cef2d6c640a462be67ab2acfd8c2391714e91da1f014557a2433b3e4c1a5
+  checked_utc: '2026-10-19T11:16:12.510931+00:00'
+- publisher: geoBoundaries (William & Mary geoLab); source data NAMRIA, PSA and OCHA
+    Philippines
+  release: gbOpen PHL ADM2/ADM3 simplified; see the release metadata file for build
+    date
+  represented_dates: 2020 boundaries (boundaryYearRepresented)
+  attribution: geoBoundaries (Runfola et al., 2020) and the original sources named
+    in the release metadata
+  crs: EPSG:4326
+  units: Polygon geometry in decimal degrees
+  resolution: Simplified polygons; not survey-grade
+  missing_values: Not applicable; a missing province or municipality stops the build
+    (DATA-03)
+  processing: Province selected by name; municipalities matched by representative
+    point; border H3 cells take the closest municipality polygon
+  id: boundary_adm3
+  path: boundaries/PHL_ADM3_simplified.geojson
+  url: https://github.com/wmgeolab/geoBoundaries/raw/9469f09/releaseData/gbOpen/PHL/ADM3/geoBoundaries-PHL-ADM3_simplified.geojson
+  license: Creative Commons Attribution 3.0 Intergovernmental Organisations (CC BY
+    3.0 IGO)
+  limitations: Simplified 2020 boundaries; not survey-grade.
+  status: downloaded
+  bytes: 7071267
+  sha256: 2ece3d44a5c6a2afb385ffbf3a6b88d83e4d3a3e7eed9a52cb3be1bc59e289fc
+  checked_utc: '2026-10-19T11:16:12.529931+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_15
+  path: worldpop/age_sex/phl_f_15_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_15_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007070
+  sha256: fb75bbd1e5884e723a1a142dcefa61b8432075db55e788d93cc2709bfbe96cc5
+  checked_utc: '2026-10-19T11:17:13.983648+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_20
+  path: worldpop/age_sex/phl_f_20_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_20_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007902
+  sha256: e8bc6d2966c277e9d642164c29c91f473da8eed13328963cd0a3afe5454dd575
+  checked_utc: '2026-10-19T11:17:01.555999+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_25
+  path: worldpop/age_sex/phl_f_25_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_25_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008308
+  sha256: c4c85be7acf4a1c3d9ed283ead7796d60807abd889779fb910aa440d7040806c
+  checked_utc: '2026-10-19T11:16:41.553119+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_30
+  path: worldpop/age_sex/phl_f_30_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_30_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007976
+  sha256: d53ae9d005224ec2cda071727fca54f6f46ca44c7af9749bb9ea93b4c81b4064
+  checked_utc: '2026-10-19T11:17:03.250737+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_35
+  path: worldpop/age_sex/phl_f_35_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_35_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008106
+  sha256: 0fe574f5ec2ab60d5d9bf36c3fe8e59a368d6ece35eb26f03cc0a177b21baa89
+  checked_utc: '2026-10-19T11:17:07.021383+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_40
+  path: worldpop/age_sex/phl_f_40_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_40_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008182
+  sha256: 6e49da02e2049b6dd22eb272dc04148f29d693d47406604aeebdcdde4109c47c
+  checked_utc: '2026-10-19T11:17:11.269386+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_45
+  path: worldpop/age_sex/phl_f_45_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_45_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2009478
+  sha256: 6dc8201b65e2c2f905da78c0fd405ef5616fde488121683a6d25cbd639491354
+  checked_utc: '2026-10-19T11:17:28.445997+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_50
+  path: worldpop/age_sex/phl_f_50_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_50_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008662
+  sha256: f939a323961ee6e02eb55db52d135b2e0e903b0399c3f25bbec6c0bb759042cd
+  checked_utc: '2026-10-19T11:17:31.373757+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_55
+  path: worldpop/age_sex/phl_f_55_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_55_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008394
+  sha256: 1c0a1ba38b42290c0d804c0cec284e1b702f62931b130cee622f3f0938d327e7
+  checked_utc: '2026-10-19T11:18:02.955148+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_60
+  path: worldpop/age_sex/phl_f_60_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_60_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2009018
+  sha256: cb487d77756a289a722f6e9759af7768553db6ca1104a3206d58e0c196c36fb1
+  checked_utc: '2026-10-19T11:17:35.780674+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_65
+  path: worldpop/age_sex/phl_f_65_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_65_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2009038
+  sha256: 2b7454b7b66a02852e6af8e3fb3d939d164cd11b1a286bbb142470733e3b81ee
+  checked_utc: '2026-10-19T11:19:43.077134+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_70
+  path: worldpop/age_sex/phl_f_70_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_70_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2010256
+  sha256: 05eae854ef870f32805929307df3e4d6503fa3a7a255bb33090a45a7e81a3535
+  checked_utc: '2026-10-19T11:17:52.226776+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_75
+  path: worldpop/age_sex/phl_f_75_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_75_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2014714
+  sha256: 23347385a3bcf7dd2bffa1058f5a926a4662a6fe9502840f96ac13163f003528
+  checked_utc: '2026-10-19T11:19:41.903646+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_f_80
+  path: worldpop/age_sex/phl_f_80_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_f_80_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2015078
+  sha256: 68c65915da204d26a054637b9cdfccb4f5cbeff897b1f965fcc6a3f62cec5f24
+  checked_utc: '2026-10-19T11:18:33.097066+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_15
+  path: worldpop/age_sex/phl_m_15_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_15_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2006564
+  sha256: bcb9a925550c84266c4583d7043eccd74c7865ce0b26a95b5b1e4a853bd90922
+  checked_utc: '2026-10-19T11:18:17.517556+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_20
+  path: worldpop/age_sex/phl_m_20_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_20_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007298
+  sha256: a84df0b688da11a0cef724d79ae9fc939d37c282ce855252e2e8538a55e2b1d4
+  checked_utc: '2026-10-19T11:20:10.002839+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_25
+  path: worldpop/age_sex/phl_m_25_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_25_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007858
+  sha256: 67bbe64208d6b64035f633673672b94ea9e2ea1b4df3ede303bade4b1594a1ac
+  checked_utc: '2026-10-19T11:18:40.043338+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_30
+  path: worldpop/age_sex/phl_m_30_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_30_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007964
+  sha256: e13b97b6f6617caccbbf69d360175fa56e5e89f214f6b71723abb45d909a06fd
+  checked_utc: '2026-10-19T11:18:52.612638+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_35
+  path: worldpop/age_sex/phl_m_35_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_35_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007896
+  sha256: bd83daab6b5e0780f66d098444737c4872ade105b836a94eb007bfb01f17485f
+  checked_utc: '2026-10-19T11:19:15.389448+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_40
+  path: worldpop/age_sex/phl_m_40_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_40_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008140
+  sha256: a8430b9de67aab4bb30ad0fd8e3297c75cdafda5e39ad05e5c4919c049dfb2b4
+  checked_utc: '2026-10-19T11:19:21.121238+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_45
+  path: worldpop/age_sex/phl_m_45_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_45_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007730
+  sha256: 69279911d20518b6749e4901cae92e4723f56463f534727628bd89b8fac0b2c8
+  checked_utc: '2026-10-19T11:19:26.220569+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_50
+  path: worldpop/age_sex/phl_m_50_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_50_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008044
+  sha256: 9129f78692a5bc730aca0acdf460546ad8491254970d351d52d24b1192373155
+  checked_utc: '2026-10-19T11:19:58.469077+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_55
+  path: worldpop/age_sex/phl_m_55_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_55_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008150
+  sha256: d2a11ad5b6a7381ffa3fe9c53443c59be8c7394d10334365c3ebe6b3668bf096
+  checked_utc: '2026-10-19T11:20:57.680037+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_60
+  path: worldpop/age_sex/phl_m_60_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_60_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2006810
+  sha256: 8ec5baa3a5c8b7feada4f40166b9baa364b485e217e3c50a436564372a64b9f1
+  checked_utc: '2026-10-19T11:19:54.463319+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_65
+  path: worldpop/age_sex/phl_m_65_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_65_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2007278
+  sha256: 787416bcf17d175a6c8c7a024db3d58f1faf337660e0d6faa7374639d8e37db7
+  checked_utc: '2026-10-19T11:22:31.337733+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_70
+  path: worldpop/age_sex/phl_m_70_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_70_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2008290
+  sha256: 7516974fb1605e4defe3a3261730c6c81711d897dd8facd19480bb1411497830
+  checked_utc: '2026-10-19T11:20:35.433455+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_75
+  path: worldpop/age_sex/phl_m_75_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_75_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2009778
+  sha256: 7cf27b180c4267a40dc05573a0b84776949c3e9c5e9fb9d9c8bfc6002f2f444e
+  checked_utc: '2026-10-19T11:20:58.200849+00:00'
+- publisher: WorldPop, School of Geography and Environmental Science, University of
+    Southampton
+  release: Global 2000-2020 1 km, unconstrained top-down estimates
+  represented_dates: '2020'
+  attribution: WorldPop (www.worldpop.org); cite the dataset as listed on the WorldPop
+    data page
+  crs: EPSG:4326
+  resolution: 30 arc-seconds (about 1 km)
+  missing_values: Raster NoData cells and zero-count pixels are dropped before aggregation
+  units: People per pixel in one sex and 5-year age band (15-19 through 80+)
+  processing: Clipped to the province boundary; pixel centres assigned to H3 resolution
+    8; 15-19 band x 2/5 as adults; population conservation checked (GEO-02)
+  id: worldpop_m_80
+  path: worldpop/age_sex/phl_m_80_2020_1km.tif
+  url: https://data.worldpop.org/GIS/AgeSex_structures/Global_2000_2020_1km/unconstrained/2020/PHL/phl_m_80_2020_1km.tif
+  license: CC BY 4.0; attribute WorldPop
+  limitations: Modeled 2020 age–sex counts; 15–19 adult fraction assumed 2/5; 80+
+    open band. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts. Unconstrained product, whereas SRS DATA-01 specifies the 2020 constrained
+    counts.
+  status: downloaded
+  bytes: 2010200
+  sha256: 93ea3fac0c657dfbabbdae201f0991331e8c7614d079a0254172bc613cb0107b
+  checked_utc: '2026-10-19T11:21:10.855665+00:00'
+- publisher: Copernicus Climate Change Service (C3S), ECMWF
+  release: ERA5-Land hourly, ECMWF ARCO Zarr data lake (geo-chunked stores), served
+    with the CDS key
+  represented_dates: December 1990 to September 2026 (1991-2020 reference, January
+    2021 to September 2026 replay), from the committed ARCO extract; CDS GRIB archives
+    are committed as they arrive as a cross-check
+  attribution: Contains modified Copernicus Climate Change Service information; Muñoz-Sabater
+    et al. (2021), Earth System Science Data 13, 4349-4383
+  crs: Regular 0.1 degree latitude-longitude grid (EPSG:4326)
+  units: 2 m temperature in K (converted to °C); total precipitation in m accumulated
+    from 00 UTC (converted to hourly mm)
+  resolution: 0.1 degree grid (about 11 km); about 9 km native model resolution
+  missing_values: Lake and sea grid points are masked (no data); incomplete local
+    days and windows stay missing
+  processing: Rainfall already hourly in ARCO (equal to our CDS de-accumulation within
+    GRIB packing precision); rounding noise clipped; Asia/Manila local days; 7- and
+    30-day windows; anomalies against the 1991-2020 monthly reference (climate/history.py);
+    lakeshore cells take the nearest supported grid cell within 15 km
+  id: era5_land_laguna
+  path: era5_land/arco/
+  url: https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land
+  license: CC BY 4.0
+  status: 'ARCO extract: 37 yearly files, 1990-12-01T00:00 to 2026-09-30T23:00 UTC;
+    CDS GRIB cross-check: 48 of 74 planned archives complete'
+  checked_utc: '2026-10-18T21:23:53.319995+00:00'
+  sha256: Per yearly file in era5_land/arco/era5_land_arco.json (verified before use)
+  limitations: Gridded reanalysis, a community-level proxy rather than personal exposure;
+    lake-masked cells have no data. ECMWF describes the ARCO service as experimental;
+    the local extract is the pipeline input.
+updated_utc: '2026-10-19T14:50:18.333846+00:00'

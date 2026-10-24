@@ -1,0 +1,80 @@
+{
+  "source": "Copernicus ERA5-Land hourly reanalysis",
+  "source_mode": "cds_grib",
+  "source_url": "https://cds.climate.copernicus.eu/datasets/reanalysis-era5-land",
+  "prepared_utc": "2026-10-19T14:00:16.911664+00:00",
+  "source_archives": [
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2020_07-12_temperature_precipitation.grib.zip",
+      "sha256": "db119b7c1da852966e7d51de0b1972dd389528a3e05ad0cfad040022c38f0775",
+      "first_utc": "2020-07-01 00:00:00+00:00",
+      "last_utc": "2020-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2021_01-06_temperature_precipitation.grib.zip",
+      "sha256": "8e878a1d6253f2506535ad74bebefa726e7b86c410ab4992db2359ab7769da93",
+      "first_utc": "2021-01-01 00:00:00+00:00",
+      "last_utc": "2021-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2021_07-12_temperature_precipitation.grib.zip",
+      "sha256": "990b7833598cf1e0030f3886e4d78ec157b116d645902546391777e0a4628a6e",
+      "first_utc": "2021-07-01 00:00:00+00:00",
+      "last_utc": "2021-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2022_01-06_temperature_precipitation.grib.zip",
+      "sha256": "2b88447dadb090ef6e796efa42c70b58c7c40235aa978ff0590e5f85d39275fc",
+      "first_utc": "2022-01-01 00:00:00+00:00",
+      "last_utc": "2022-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2022_07-12_temperature_precipitation.grib.zip",
+      "sha256": "3bc74310feaf647c5011f1d4bbb413e4bc2090eaee1ca7f0d2db2e5a109708aa",
+      "first_utc": "2022-07-01 00:00:00+00:00",
+      "last_utc": "2022-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2023_01-06_temperature_precipitation.grib.zip",
+      "sha256": "95c5f111d5bdcc3c15dd35b6187b4eb602f90ea4732faf959087b4eb3fa88659",
+      "first_utc": "2023-01-01 00:00:00+00:00",
+      "last_utc": "2023-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2023_07-12_temperature_precipitation.grib.zip",
+      "sha256": "3d6c7795d47055a5083fc84b4919843f0bc43b6f411e009e9422b14b1de1e772",
+      "first_utc": "2023-07-01 00:00:00+00:00",
+      "last_utc": "2023-12-31 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2024_01-06_temperature_precipitation.grib.zip",
+      "sha256": "6b64144ce6fe24afed7ef586e00344d135e6b4f4c035301f4ece829102a466ce",
+      "first_utc": "2024-01-01 00:00:00+00:00",
+      "last_utc": "2024-06-30 23:00:00+00:00"
+    },
+    {
+      "path": "data/raw/era5_land/laguna_replay/era5_land_2024_07-12_temperature_precipitation.grib.zip",
+      "sha256": "5213915eeaf2be6a64e1998686e8d3bf660de838b3620b424228e47a86fba8d0",
+      "first_utc": "2024-07-01 00:00:00+00:00",
+      "last_utc": "2024-12-31 23:00:00+00:00"
+    }
+  ],
+  "processor_sha256": "1ecc7361e53200635717664192b59ec34f9e8dc9dda4e9ebe0943f3e8eb74a73",
+  "daily_processor_sha256": "688e11a92165ce151ded27a786620cbb07c7ea35a74b9494ed1849fb1d3fcfca",
+  "local_timezone": "Asia/Manila",
+  "requested_start": "2021-01-01",
+  "requested_end": "2024-12-31",
+  "first_complete_cutoff": "2021-01-01",
+  "last_complete_cutoff": "2025-01-01",
+  "source_cell_count": 90,
+  "supported_cell_count": 69,
+  "daily_rows": 134190,
+  "complete_daily_rows": 102879,
+  "complete_7d_windows": 100878,
+  "complete_30d_windows": 100878,
+  "window_rule": "7 or 30 full Asia/Manila days before the context date; context day excluded; 24 valid hours required per variable/day",
+  "rainfall_rule": "Forecast-cycle differencing; interval ending at local midnight belongs to the preceding day; missing rainfall is never zero-filled",
+  "model_use": false,
+  "baseline_available": false,
+  "limitation": "Historical weather context only. No seasonal anomaly, hot-dry score or climate-model prediction is calculated; resident dates/outcomes and screening scores are unchanged."
+}

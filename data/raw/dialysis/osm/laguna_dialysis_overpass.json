@@ -1,0 +1,104 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-10-23T08:54:02Z",
+    "timestamp_areas_base": "2026-10-23T02:34:31Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 735029899,
+  "lat": 14.0719185,
+  "lon": 121.3261125,
+  "tags": {
+    "addr:city": "San Pablo",
+    "addr:housenumber": "149",
+    "addr:postcode": "4000",
+    "addr:street": "M. Brion Street",
+    "amenity": "clinic",
+    "facebook": "https://www.facebook.com/NEPHRO-PLUS-DIALYSIS-CENTER-881377171914168",
+    "name": "Nephro Plus Dialysis Center"
+  }
+},
+{
+  "type": "node",
+  "id": 6568823089,
+  "lat": 14.0698272,
+  "lon": 121.3124354,
+  "tags": {
+    "addr:city": "San Pablo",
+    "addr:housename": "Lynderson Arcade",
+    "addr:postcode": "4000",
+    "addr:street": "Maharlika Highway",
+    "amenity": "clinic",
+    "healthcare": "clinic",
+    "name": "Kolff Dialysis"
+  }
+},
+{
+  "type": "node",
+  "id": 7941643889,
+  "lat": 14.1477291,
+  "lon": 121.2535647,
+  "tags": {
+    "name": "Renalyn - friday",
+    "shop": "convenience"
+  }
+},
+{
+  "type": "node",
+  "id": 9167432086,
+  "lat": 14.0726215,
+  "lon": 121.3286767,
+  "tags": {
+    "addr:city": "San Pablo",
+    "addr:postcode": "4000",
+    "addr:street": "General Luna Street",
+    "amenity": "clinic",
+    "facebook": "https://www.facebook.com/Renal-Hub-Dialysis-Center-107028511627889",
+    "healthcare": "dialysis",
+    "healthcare:speciality": "dialysis",
+    "level": "0",
+    "name": "Renal Hub Dialysis Center"
+  }
+},
+{
+  "type": "node",
+  "id": 9733534791,
+  "lat": 14.1970898,
+  "lon": 121.1464213,
+  "tags": {
+    "healthcare": "laboratory",
+    "name": "Hemotek Renal Center"
+  }
+},
+{
+  "type": "node",
+  "id": 11036471904,
+  "lat": 14.2930052,
+  "lon": 121.1067761,
+  "tags": {
+    "addr:street": "National Highway 1",
+    "healthcare": "dialysis",
+    "mapillary": "705923600612555",
+    "name": "Kidneycare"
+  }
+},
+{
+  "type": "way",
+  "id": 93838137,
+  "center": {
+    "lat": 14.2461875,
+    "lon": 121.1678928
+  },
+  "tags": {
+    "highway": "residential",
+    "name": "Arenal Lane"
+  }
+}
+
+  ]
+}

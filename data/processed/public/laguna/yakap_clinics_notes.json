@@ -1,0 +1,16 @@
+{
+  "register_id": "YAKAP-20260930",
+  "register_title": "List of Accredited YAKAP Clinics for CY 2026, updated as of September 30, 2026",
+  "register_url": "https://www.philhealth.gov.ph/partners/providers/facilities/accredited/YAKAP.pdf",
+  "register_sha256": "2b288424cff77a37f2a31a02470165469be9877b021011966eceea52eceabf55",
+  "province": "Laguna",
+  "clinics": 111,
+  "location_precision": {
+    "osm": 52,
+    "municipality": 40,
+    "barangay": 19
+  },
+  "osm_source": "OpenStreetMap contributors (ODbL), Overpass API query of Laguna",
+  "geocoder": "OpenStreetMap Nominatim, barangay-level queries",
+  "limitations": "Accreditation does not establish current capacity, schedule, cost, test capability or acceptance of new patients. Approximate locations mark a barangay or municipality centre, not the building."
+}

@@ -1,0 +1,278 @@
+{
+  "Sto Domingo, Bay, Laguna, Philippines": null,
+  "Balibago, Santa Rosa, Laguna, Philippines": {
+    "lat": 14.2964801,
+    "lon": 121.1056626,
+    "display_name": "Balibago, Santa Rosa, Laguna, Calabarzon, 4026, Philippines"
+  },
+  "San Francisco, Biñan, Laguna, Philippines": {
+    "lat": 14.3327287,
+    "lon": 121.0559349,
+    "display_name": "San Francisco, Biñan, Laguna, Calabarzon, 4024, Philippines"
+  },
+  "Pagsawitan, Santa Cruz, Laguna, Philippines": {
+    "lat": 14.2657906,
+    "lon": 121.4265403,
+    "display_name": "Pagsawitan, Santa Cruz, Laguna, Calabarzon, 4009, Philippines"
+  },
+  "Real, Calamba, Laguna, Philippines": {
+    "lat": 14.198735,
+    "lon": 121.148322,
+    "display_name": "Real, Calamba, Laguna, Calabarzon, 4027, Philippines"
+  },
+  "Canlalay, Biñan, Laguna, Philippines": {
+    "lat": 14.3378169,
+    "lon": 121.0718176,
+    "display_name": "Canlalay, Biñan, Laguna, Calabarzon, 4024, Philippines"
+  },
+  "Kanluran, Calauan, Laguna, Philippines": {
+    "lat": 14.1438915,
+    "lon": 121.3134565,
+    "display_name": "Kanluran, Prinza, Calauan, Laguna, Calabarzon, 4012, Philippines"
+  },
+  "Biñan, Pagsanjan, Laguna, Philippines": {
+    "lat": 14.2652057,
+    "lon": 121.4343475,
+    "display_name": "Biñan, Pagsanjan, Laguna, Calabarzon, 4008, Philippines"
+  },
+  "Nueva, San Pedro, Laguna, Philippines": {
+    "lat": 14.3619293,
+    "lon": 121.0565782,
+    "display_name": "Nueva, San Pedro, Laguna, Calabarzon, 4023, Philippines"
+  },
+  "Dila, Santa Rosa, Laguna, Philippines": {
+    "lat": 14.2898471,
+    "lon": 121.1095874,
+    "display_name": "Dila, Santa Rosa, Laguna, Calabarzon, 4026, Philippines"
+  },
+  "Poblacion 1, Santa Cruz, Laguna, Philippines": {
+    "lat": 14.2771152,
+    "lon": 121.417892,
+    "display_name": "Barangay I, Santa Cruz, Laguna, Calabarzon, 4009, Philippines"
+  },
+  "Malinta, Los Baños, Laguna, Philippines": {
+    "lat": 14.1856101,
+    "lon": 121.2301977,
+    "display_name": "Malinta, Los Baños, Laguna, Calabarzon, 4030, Philippines"
+  },
+  "Parian, Calamba, Laguna, Philippines": {
+    "lat": 14.2137169,
+    "lon": 121.1510244,
+    "display_name": "Parian, Calamba, Laguna, Calabarzon, 4027, Philippines"
+  },
+  "San Rafael, San Pablo, Laguna, Philippines": {
+    "lat": 14.0702689,
+    "lon": 121.3023836,
+    "display_name": "San Rafael, Sitio Ilaya, San Pablo, Laguna, Calabarzon, 4000, Philippines"
+  },
+  "Sala, Cabuyao, Laguna, Philippines": {
+    "lat": 14.2667416,
+    "lon": 121.1200223,
+    "display_name": "Sala, Cabuyao, Laguna, Calabarzon, Philippines"
+  },
+  "Halang, Calamba, Laguna, Philippines": {
+    "lat": 14.195172,
+    "lon": 121.1641388,
+    "display_name": "Halang, Calamba, Laguna, Calabarzon, 4027, Philippines"
+  },
+  "Tagapo, Santa Rosa, Laguna, Philippines": {
+    "lat": 14.3136408,
+    "lon": 121.1001034,
+    "display_name": "Tagapo, Santa Rosa, Laguna, Calabarzon, 4026, Philippines"
+  },
+  "Milagrosa, Calamba, Laguna, Philippines": {
+    "lat": 14.1707418,
+    "lon": 121.1376896,
+    "display_name": "Milagrosa, Calamba, Laguna, Calabarzon, 4027, Philippines"
+  },
+  "San Agustin, Alaminos, Laguna, Philippines": {
+    "lat": 14.060535,
+    "lon": 121.2662877,
+    "display_name": "San Agustin, Alaminos, Laguna, Calabarzon, 4001, Philippines"
+  },
+  "San Antonio, Biñan, Laguna, Philippines": {
+    "lat": 14.3279721,
+    "lon": 121.0913256,
+    "display_name": "San Antonio, Biñan, Laguna, Calabarzon, 4024, Philippines"
+  },
+  "Banay-Banay, Cabuyao, Laguna, Philippines": {
+    "lat": 14.2526346,
+    "lon": 121.1288651,
+    "display_name": "Banay-Banay, Cabuyao, Laguna, Calabarzon, Philippines"
+  },
+  "Iv-A, San Pablo, Laguna, Philippines": {
+    "lat": 14.0727022,
+    "lon": 121.331538,
+    "display_name": "IV-A, San Pablo, Laguna, Calabarzon, 4000, Philippines"
+  },
+  "Patimbao, Santa Cruz, Laguna, Philippines": {
+    "lat": 14.2701853,
+    "lon": 121.4182901,
+    "display_name": "Patimbao, Santa Cruz, Laguna, Calabarzon, 4009, Philippines"
+  },
+  "Bubukal, Santa Cruz, Laguna, Philippines": {
+    "lat": 14.2566665,
+    "lon": 121.3992795,
+    "display_name": "Bubukal, Santa Cruz, Laguna, Calabarzon, 4009, Philippines"
+  },
+  "Paciano Rizal, Calamba, Laguna, Philippines": {
+    "lat": 14.2165135,
+    "lon": 121.136598,
+    "display_name": "Paciano Rizal, Calamba, Laguna, Calabarzon, 4027, Philippines"
+  },
+  "Chrysanthemum, San Pedro, Laguna, Philippines": {
+    "lat": 14.3419537,
+    "lon": 121.0465312,
+    "display_name": "Chrysanthemum, San Pedro, Laguna, Calabarzon, 4023, Philippines"
+  },
+  "Maitim, Bay, Laguna, Philippines": {
+    "lat": 14.1771223,
+    "lon": 121.2740178,
+    "display_name": "Maitim, Bay, Laguna, Calabarzon, 4033, Philippines"
+  },
+  "1 (Pob), Santa Cruz, Laguna, Philippines": null,
+  "Iii, Alaminos, Laguna, Philippines": null,
+  "Bagong Pook Vi C, San Pablo, Laguna, Philippines": {
+    "lat": 14.0739299,
+    "lon": 121.3216821,
+    "display_name": "Bagong Pook Barangay Hall, Holy Rosary Street, Bagong Pook, San Pablo, Laguna, Calabarzon, 4000, Philippines"
+  },
+  "San Isidro, Cabuyao, Laguna, Philippines": {
+    "lat": 14.2468818,
+    "lon": 121.1487265,
+    "display_name": "San Isidro, Cabuyao, Laguna, Calabarzon, Philippines"
+  },
+  "7, Calamba, Laguna, Philippines": {
+    "lat": 14.1691983,
+    "lon": 121.1365108,
+    "display_name": "7, The Homelands, Milagrosa, Calamba, Laguna, Calabarzon, 4027, Philippines"
+  },
+  "Ib, San Pablo, Laguna, Philippines": {
+    "lat": 14.0700502,
+    "lon": 121.3255974,
+    "display_name": "San Pablo, Laguna, Calabarzon, 4000, Philippines"
+  },
+  "Sto. Domingo, Biñan, Laguna, Philippines": null,
+  "San Roque, San Pablo, Laguna, Philippines": {
+    "lat": 14.0697037,
+    "lon": 121.3115689,
+    "display_name": "San Roque, San Pablo, Laguna, Calabarzon, 4000, Philippines"
+  },
+  "Punta, Calamba, Laguna, Philippines": {
+    "lat": 14.1765183,
+    "lon": 121.1181123,
+    "display_name": "Punta, Calamba, Laguna, Calabarzon, 4027, Philippines"
+  },
+  "Narra, San Pedro, Laguna, Philippines": {
+    "lat": 14.3313521,
+    "lon": 121.0261341,
+    "display_name": "Narra, San Pedro, Laguna, Calabarzon, 4023, Philippines"
+  },
+  "San Antonio, San Pedro, Laguna, Philippines": {
+    "lat": 14.3655206,
+    "lon": 121.0426456,
+    "display_name": "San Antonio, Sitio Maharlika, San Pedro, Laguna, Calabarzon, 4023, Philippines"
+  },
+  "Canlubang, Calamba, Laguna, Philippines": {
+    "lat": 14.2054455,
+    "lon": 121.0976255,
+    "display_name": "Canlubang, Calamba, Laguna, Calabarzon, 4028, Philippines"
+  },
+  "Banlic, Cabuyao, Laguna, Philippines": {
+    "lat": 14.231571,
+    "lon": 121.1362787,
+    "display_name": "Banlic, Cabuyao, Laguna, Calabarzon, 4025, Philippines"
+  },
+  "Ii-D, San Pablo, Laguna, Philippines": {
+    "lat": 14.0673686,
+    "lon": 121.3231051,
+    "display_name": "II-D, San Pablo, Laguna, Calabarzon, 4000, Philippines"
+  },
+  "Talortor, Majayjay, Laguna, Philippines": {
+    "lat": 14.151973,
+    "lon": 121.4587927,
+    "display_name": "Talortor, Majayjay, Laguna, Calabarzon, 4005, Philippines"
+  },
+  "4 A Gen. Luna St, San Pablo, Laguna, Philippines": {
+    "lat": 14.0716226,
+    "lon": 121.3280561,
+    "display_name": "General Luna Street, IV-B, San Pablo, Laguna, Calabarzon, 4000, Philippines"
+  },
+  "San Antonio Hospital, San Pedro, Laguna, Philippines": null,
+  "Pag-Asa, Liliw, Laguna, Philippines": {
+    "lat": 14.1331215,
+    "lon": 121.4341539,
+    "display_name": "Pag-asa, Ibabang Taykin, Liliw, Laguna, Calabarzon, 4004, Philippines"
+  },
+  "Lewin Lumban, Lumban, Laguna, Philippines": {
+    "lat": 14.2958961,
+    "lon": 121.4959171,
+    "display_name": "Lewin, Lumban, Laguna, Calabarzon, 4014, Philippines"
+  },
+  "Pag-Asa, Mabitac, Laguna, Philippines": {
+    "lat": 14.422994,
+    "lon": 121.4278892,
+    "display_name": "Pag-asa, Mabitac, Laguna, Calabarzon, 4020, Philippines"
+  },
+  "Quinale, Paete, Laguna, Philippines": {
+    "lat": 14.3556548,
+    "lon": 121.4848651,
+    "display_name": "Quinale, Paete, Laguna, Calabarzon, 4016, Philippines"
+  },
+  "Maytoong, Paete, Laguna, Philippines": {
+    "lat": 14.3624373,
+    "lon": 121.4827576,
+    "display_name": "Maytoong, Paete, Laguna, Calabarzon, 4016, Philippines"
+  },
+  "San Jose, Pangil, Laguna, Philippines": {
+    "lat": 14.4022437,
+    "lon": 121.4676011,
+    "display_name": "San Jose, Sulib, Pangil, Laguna, Calabarzon, 4018, Philippines"
+  },
+  "Iv B, San Pablo, Laguna, Philippines": {
+    "lat": 14.072377,
+    "lon": 121.3276166,
+    "display_name": "IV-B, San Pablo, Laguna, Calabarzon, 4000, Philippines"
+  },
+  "Pauli 2, Rizal, Laguna, Philippines": {
+    "lat": 14.1134153,
+    "lon": 121.393894,
+    "display_name": "Pauli 2, Paule 1, Rizal, Laguna, Calabarzon, 4003, Philippines"
+  },
+  "San Nicolas, Bay, Laguna, Philippines": {
+    "lat": 14.1819266,
+    "lon": 121.2844797,
+    "display_name": "San Nicolas, Bay, Laguna, Calabarzon, 4033, Philippines"
+  },
+  "Sto Niño, San Pedro, Laguna, Philippines": {
+    "lat": 14.3536485,
+    "lon": 121.0616514,
+    "display_name": "Sto. Nino Pet Shop, National Highway 1, Purok 3, Nueva, San Pedro, Laguna, Calabarzon, 4023, Philippines"
+  },
+  "Langgam, San Pedro, Laguna, Philippines": {
+    "lat": 14.3269207,
+    "lon": 121.0178307,
+    "display_name": "Langgam, San Pedro, Laguna, Calabarzon, 4023, Philippines"
+  },
+  "Pob Iii, Santa Maria, Laguna, Philippines": null,
+  "Market Area, Santa Rosa, Laguna, Philippines": {
+    "lat": 14.3193394,
+    "lon": 121.1129389,
+    "display_name": "Market Area, Santa Rosa, Laguna, Calabarzon, 4026, Philippines"
+  },
+  "Acevida, Siniloan, Laguna, Philippines": {
+    "lat": 14.4187651,
+    "lon": 121.446141,
+    "display_name": "Acevida Street, P. Burgos, Siniloan, Laguna, Calabarzon, 4019, Philippines"
+  },
+  "Don Jose, Santa Rosa, Laguna, Philippines": {
+    "lat": 14.2562567,
+    "lon": 121.0659663,
+    "display_name": "Don Jose, Santa Rosa, Laguna, Calabarzon, 4026, Philippines"
+  },
+  "San Vicente, Biñan, Laguna, Philippines": {
+    "lat": 14.3320735,
+    "lon": 121.0810377,
+    "display_name": "San Vicente, Biñan, Laguna, Calabarzon, 4024, Philippines"
+  }
+}

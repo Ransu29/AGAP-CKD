@@ -1,0 +1,227 @@
+:root {
+  --agap-space-1:4px;
+  --agap-space-2:8px;
+  --agap-space-3:12px;
+  --agap-space-4:16px;
+  --agap-space-5:24px;
+  --agap-space-6:32px;
+  --agap-border:#d8e4de;
+  --agap-muted:#536c64;
+  --agap-radius:12px;
+}
+
+/* A shared rhythm for the shell, fields and sections. */
+/* Framed sheet: the window is a green-grey frame; the work sits on one white sheet,
+   inset 8px, with a hairline edge and no shadow. Depth comes from that one tone step. */
+.stApp { background:#eef2f0; }
+.block-container { max-width:none; margin:2.75rem 8px 8px; padding:var(--agap-space-5) var(--agap-space-6) var(--agap-space-6);
+  background:#fff; border:1px solid #e1e7e4; border-radius:16px; }
+[data-testid="stHeader"] { height:2.5rem; background:transparent; }
+h1,h2,h3 { color:#163c38; letter-spacing:-.025em; margin:0; padding:0 !important; line-height:1.4 !important; }
+h1 { font-size:1.5rem !important; }
+h2 { font-size:1.25rem !important; }
+h3 { font-size:1.125rem !important; }
+[data-testid="stVerticalBlock"] { gap:var(--agap-space-3); }
+[data-testid="stHeading"] { padding-block:var(--agap-space-1); }
+[data-testid="stMarkdownContainer"] p { line-height:1.55; }
+[data-testid="stWidgetLabel"] p { line-height:1.5; }
+[data-testid="stSidebar"] { background: white; border-right: 1px solid #dce3eb; }
+[data-testid="stMetric"] { padding:var(--agap-space-1) 0; }
+[data-testid="stMetricValue"] { font-size:1.75rem; line-height:1.35; }
+[data-testid="stMetricLabel"] p { white-space:normal; line-height:1.4; }
+[data-testid="stCaptionContainer"], [data-testid="stCaptionContainer"] p {
+  color:var(--agap-muted); line-height:1.6; opacity:1;
+}
+
+/* Expandable tasks use one card boundary instead of nested form borders. */
+[data-testid="stForm"] { background:white; border-color:var(--agap-border); border-radius:var(--agap-radius); padding:var(--agap-space-5); }
+[data-testid="stForm"] [data-testid="stVerticalBlock"] { gap:var(--agap-space-4); }
+[data-testid="stExpander"] details { background:white; border-color:var(--agap-border); border-radius:var(--agap-radius); }
+[data-testid="stExpander"] summary { min-height:48px; padding:var(--agap-space-3) var(--agap-space-4); }
+[data-testid="stExpanderDetails"] { padding:var(--agap-space-4) var(--agap-space-5) var(--agap-space-5); }
+[data-testid="stExpanderDetails"] [data-testid="stForm"] { border:0; padding:0; background:transparent; }
+.st-key-workspace_tools { background:white; border-color:var(--agap-border); border-radius:var(--agap-radius); padding:var(--agap-space-4); }
+.st-key-workspace_tools [data-testid="stForm"] { border:0; padding:0; background:transparent; }
+.st-key-workspace_tools h3 { font-size:1.15rem !important; }
+.st-key-workspace_tools [data-baseweb="tab-list"] { position:sticky; top:0; background:white; z-index:4; gap:var(--agap-space-4); }
+.st-key-community_map,.st-key-community_hex_map,.st-key-community_street_map { border-radius:10px; overflow:hidden; }
+.st-key-community_hex_map { background:#132331; border-radius:4px; overflow:hidden; }
+[data-baseweb="tab-list"] { gap:var(--agap-space-5); border-bottom:1px solid var(--agap-border); }
+[data-baseweb="tab"] { font-size:.9rem; padding:var(--agap-space-3) 0; }
+[data-baseweb="tab-panel"] { padding-top:var(--agap-space-4); }
+/* The brand shrinks to its mark and name; the chrome carries no fill. */
+.agap-brand { display:flex; align-items:center; gap:var(--agap-space-3); min-height:36px; margin:0; color:#16241f; font-size:14px; }
+.agap-brand h1 { border-left:1px solid #d5ddd9; padding-left:var(--agap-space-3) !important; margin:0; color:#16241f; font-size:1.125rem !important; font-weight:600; }
+.agap-mark { display:inline-flex; align-items:center; justify-content:center; width:24px; height:24px; border-radius:6px; background:#12796d; color:#fff; font-weight:700; font-size:13px; }
+.agap-brand strong { font-weight:700; }
+.agap-brand small { color:#607181; padding-left:8px; }
+.agap-chips { display:flex; flex-wrap:wrap; gap:var(--agap-space-2); margin:var(--agap-space-1) 0; }
+.agap-chip { display:inline-block; border:1px solid #dce3eb; background:#f6f8fb; color:#405569; padding:var(--agap-space-1) var(--agap-space-2); border-radius:6px; font-size:12px; line-height:1.5; }
+.agap-chip-missing { background:#fff8ed; border-color:#ead7b6; color:#826336; }
+.agap-chip-reported,.agap-chip-answer { background:#eef7f2; border-color:#cfdfd5; color:#35624c; }
+.agap-chip-invited { background:#edf3fc; border-color:#cbdaf0; color:#315a92; }
+.agap-community-summary { display:flex; flex-wrap:wrap; gap:var(--agap-space-2) var(--agap-space-4); font-size:13px; color:var(--agap-muted); margin:0 0 var(--agap-space-1); }
+.agap-community-summary b { color:#233c52; font-size:15px; }
+.agap-eyebrow { display:block; color:#52726a; font-size:12px; font-weight:650; letter-spacing:.1em; line-height:1.6; }
+.st-key-weather_workspace { padding-top:var(--agap-space-1); }
+.st-key-weather_workspace [data-testid="stRadio"] { margin-bottom:var(--agap-space-2); }
+.st-key-weather_workspace [data-testid="stRadio"] label p { font-size:.875rem; }
+.st-key-weather_workspace [data-testid="stHeading"] h3 { font-size:1.4rem !important; }
+.st-key-weather_timeline_panel, .st-key-weather_resident { background:#fff; border:1px solid var(--agap-border); border-radius:var(--agap-radius); padding:var(--agap-space-5); }
+.st-key-weather_timeline_panel [data-testid="stHeading"] h3, .st-key-weather_resident [data-testid="stHeading"] h3 { font-size:1.25rem !important; }
+.agap-weather-period { display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between; gap:var(--agap-space-2) var(--agap-space-4); padding:0 0 var(--agap-space-3); }
+.agap-weather-period h3 { font-size:1.2rem !important; padding:0 !important; margin:0; }
+.agap-weather-period small { font-size:12px; color:#597066; }
+.agap-model-shift { display:grid; grid-template-columns:1fr 40px 1fr 1.15fr; overflow:hidden; border:1px solid var(--agap-border); border-radius:var(--agap-radius); margin:var(--agap-space-2) 0; background:#fff; }
+.agap-model-cell { padding:var(--agap-space-4) var(--agap-space-5); }
+.agap-model-cell.is-active { background:#e6f0e9; }
+.agap-model-label { display:flex; justify-content:space-between; align-items:center; gap:8px; font-size:13px; color:#3c5850; }
+.agap-model-label span { font-size:12px; letter-spacing:.06em; color:#5d756b; white-space:nowrap; }
+.agap-model-value { display:flex; align-items:baseline; gap:10px; font-size:32px; font-weight:650; letter-spacing:-.04em; line-height:1.4; color:#153e34; }
+.agap-model-value small { font-size:12px; letter-spacing:0; font-weight:400; color:#5a7267; }
+.agap-model-position { display:flex; align-items:center; gap:var(--agap-space-2); font-size:12px; color:#49665a; }
+.agap-model-position span { margin-left:auto; color:#204e3c; font-size:12px; font-weight:600; }
+.agap-model-arrow { display:flex; align-items:center; justify-content:center; color:#59776c; font-size:22px; }
+.agap-model-verdict { display:flex; flex-direction:column; justify-content:center; padding:var(--agap-space-4) var(--agap-space-5); background:#153f3b; color:#f2f8f4; }
+.agap-model-verdict .agap-eyebrow { color:#b2d1c2; font-size:12px; }
+.agap-model-verdict strong { font-size:18px; line-height:1.35; margin:4px 0; }
+.agap-model-verdict p { color:#d6e7de; font-size:12px; line-height:1.6; margin:0; }
+.agap-verdict-removed { background:#704936; }
+.agap-verdict-pending { background:#435e58; }
+.agap-weather-summary { display:flex; gap:var(--agap-space-6); padding:var(--agap-space-2) 0; }
+.agap-weather-summary > div + div { padding-left:var(--agap-space-6); border-left:1px solid #e0e9e3; }
+.agap-weather-summary span { display:block; font-size:12px; color:#4f675c; }
+.agap-weather-summary strong { display:block; font-size:30px; line-height:1.4; letter-spacing:-.03em; color:#264e3b; }
+.agap-weather-summary strong small { font-size:18px; font-weight:400; }
+.agap-weather-summary p { font-size:12px; color:#587063; margin:0; }
+.agap-resident-identity { font-size:13px; line-height:1.6; color:#34574b; padding:0 0 var(--agap-space-4); }
+.agap-resident-identity span { display:block; color:#64796c; margin-top:3px; font-size:12px; }
+.agap-current-decision { background:#e7f1ea; border-radius:8px; padding:var(--agap-space-4); margin:var(--agap-space-2) 0; }
+.agap-current-decision > span { display:block; font-size:12px; letter-spacing:.08em; color:#4c7160; }
+.agap-current-decision strong { display:block; font-size:25px; color:#1d4d39; line-height:1.4; }
+.agap-current-decision small { font-size:12px; color:#456b57; }
+.agap-resident-facts { margin:var(--agap-space-4) 0; }
+.agap-resident-facts > div { padding:var(--agap-space-3) 0; border-bottom:1px solid #e5ece6; }
+.agap-resident-facts dt { font-size:12px; color:#5c7466; margin-bottom:3px; }
+.agap-resident-facts dd { font-size:12px; line-height:1.5; color:#314f3c; margin:0; }
+.agap-map-changes { display:flex; flex-wrap:wrap; align-items:center; gap:var(--agap-space-2) var(--agap-space-4); padding:var(--agap-space-3) var(--agap-space-4); background:#fff; border-radius:8px; font-size:12px; color:#486056; }
+.agap-map-changes b { font-size:12px; color:#314f46; }
+.agap-map-changes span { display:flex; align-items:center; gap:6px; }
+.agap-map-changes i { display:inline-block; width:9px; height:9px; border-radius:50%; }
+.agap-map-added { background:#117e6e; }
+.agap-map-removed { border:1.6px solid #af5337; }
+.agap-map-changes small { margin-left:auto; color:#5d736a; font-size:12px; }
+.st-key-workspace_mobile_toggle { display:none; }
+.st-key-map_workspace { position:relative; }
+.agap-map-label { position:absolute; top:64px; left:var(--agap-space-3); z-index:2; padding:6px 10px; background:#fff; color:#254b42; border:1px solid var(--agap-border); border-radius:6px; font-size:12px; pointer-events:none; }
+[role="tabpanel"]:has(.st-key-report_form_DM),
+[role="tabpanel"]:has(.st-key-report_form_sms) { max-width:960px; margin-inline:auto; }
+.st-key-screening_worklist_stage { padding-block:var(--agap-space-2); }
+.st-key-screening_worklist_stage [data-testid="stForm"] { max-width:none; }
+.st-key-workspace_page_selector { display:none; }
+/* Always-visible scope line under the brand bar. */
+.agap-disclaimer { display:flex; flex-wrap:wrap; gap:var(--agap-space-1) var(--agap-space-4); margin:var(--agap-space-2) 0 0; font-size:13px; color:var(--agap-muted); }
+.agap-disclaimer b { color:#704936; font-weight:600; }
+.agap-disclaimer span + span::before, .agap-disclaimer b + span::before { content:"·"; margin-right:var(--agap-space-4); color:#9db1a9; }
+/* Operational plan facts directly under the map. */
+.agap-plan-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); border:1px solid var(--agap-border); border-radius:var(--agap-radius); }
+.agap-plan-summary > div { padding:var(--agap-space-3) var(--agap-space-4); }
+.agap-plan-summary > div + div { border-left:1px solid var(--agap-border); }
+.agap-plan-summary strong { display:block; color:#16241f; font-size:1.5rem; font-weight:600; line-height:1.35; font-variant-numeric:tabular-nums; }
+.agap-plan-summary span { display:block; color:#4b655c; font-size:13px; line-height:1.5; }
+.st-key-round_approval { background:#fff; border:1px solid var(--agap-border); border-radius:var(--agap-radius); padding:var(--agap-space-5); }
+/* Every simulator-truth surface shares one look, so the separation is visible, not only written. */
+.st-key-evaluate_area { border:1px dashed #b98a6e; border-radius:var(--agap-radius); padding:var(--agap-space-4) var(--agap-space-5) var(--agap-space-5); background:#fbf8f5; }
+.agap-sim-banner { display:flex; flex-wrap:wrap; align-items:baseline; gap:var(--agap-space-3); padding:var(--agap-space-3) var(--agap-space-4); border-radius:8px; background:#f3e7de; color:#5b3a29; font-size:13px; }
+.agap-sim-banner b { letter-spacing:.06em; font-size:12px; }
+/* The five queues are one divided strip: peers that read as one fact, not five tiles. */
+.agap-queue-counts { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); margin:var(--agap-space-2) 0; border:1px solid var(--agap-border); border-radius:var(--agap-radius); }
+.agap-queue-count { padding:var(--agap-space-3); min-width:0; }
+.agap-queue-count + .agap-queue-count { border-left:1px solid var(--agap-border); }
+.agap-queue-count strong { display:block; color:#163c38; font-size:1.4rem; line-height:1.35; }
+.agap-queue-count span { display:block; color:#4b655c; font-size:12px; line-height:1.5; }
+.agap-case-progress { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:var(--agap-space-2); margin:var(--agap-space-2) 0; padding:0; list-style:none; }
+.agap-case-progress li { background:#f7faf8; border:1px solid var(--agap-border); border-radius:8px; padding:var(--agap-space-3); min-width:0; }
+.agap-case-progress li.is-recorded { background:#e8f2ec; }
+.agap-case-progress li.is-open { background:#fff6e7; border-color:#e2c893; }
+.agap-case-progress span { display:block; color:#536c64; font-size:12px; line-height:1.5; }
+.agap-case-progress strong { display:block; margin-top:var(--agap-space-1); color:#24483d; font-size:12px; font-weight:600; line-height:1.5; }
+.agap-recovery-comparison { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--agap-space-4); }
+.agap-recovery-comparison > div { border:1px solid var(--agap-border); border-radius:8px; padding:var(--agap-space-4); background:#f7faf8; }
+.agap-recovery-comparison > div:last-child { background:#e8f2ec; }
+.agap-recovery-comparison span,.agap-recovery-comparison small { display:block; color:#536c64; font-size:12px; line-height:1.6; }
+.agap-recovery-comparison strong { display:block; font-size:1.15rem; color:#163c38; margin-block:var(--agap-space-2); overflow-wrap:anywhere; }
+.agap-recovery-comparison p { font-size:13px; color:#34594b; margin:var(--agap-space-2) 0; line-height:1.5; }
+.agap-recovery-checks { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:var(--agap-space-2) var(--agap-space-4); margin:var(--agap-space-2) 0; padding:0; list-style:none; }
+.agap-recovery-checks li { font-size:12px; color:#3e5c51; line-height:1.6; }
+.agap-recovery-checks strong { display:inline-block; color:#1e6046; margin-right:var(--agap-space-1); }
+@media (min-width:1101px) {
+  [data-testid="stLayoutWrapper"]:has(> .st-key-workspace_mobile_toggle) { display:none; }
+  [data-testid="stLayoutWrapper"]:has(> .st-key-workspace_page_selector) { display:none; }
+}
+@media (max-width:1100px) {
+  .st-key-workspace_page_selector { display:block; }
+  .st-key-workspace_destinations [role="tablist"]:not([role="tabpanel"] [role="tablist"]),
+  .st-key-workspace_destinations [data-testid^="stTabsScroll"]:not([role="tabpanel"] [data-testid^="stTabsScroll"]) { display:none; }
+  .st-key-workspace_mobile_toggle { display:block; }
+  .st-key-responsive_mode_tasks [data-testid="stColumn"]:has(.st-key-map_workspace),
+  .st-key-responsive_mode_map [data-testid="stColumn"]:has(.st-key-workspace_tools) { display:none; }
+  .st-key-responsive_mode_tasks [data-testid="stColumn"]:has(.st-key-workspace_tools),
+  .st-key-responsive_mode_map [data-testid="stColumn"]:has(.st-key-map_workspace) { width:100%; min-width:100%; flex:1 1 100%; }
+  .st-key-workspace_tools { height:auto !important; max-height:none !important; overflow:visible !important; }
+  /* The fixed desktop height lives on the wrapper too; release it so the panel never overlaps what follows. */
+  [data-testid="stLayoutWrapper"]:has(> .st-key-workspace_tools) { height:auto !important; max-height:none !important; }
+  /* Streamlit normally floats this toolbar above the chart. Keep its native
+     selection/fullscreen controls inside narrow maps, clear of the form above
+     and left of the street map's zoom controls. Touch users need no hover. */
+  .st-key-community_map [data-testid="stElementToolbar"],
+  .st-key-community_hex_map [data-testid="stElementToolbar"],
+  .st-key-community_street_map [data-testid="stElementToolbar"] {
+    top:.5rem !important;
+    right:3rem !important;
+    padding:0 !important;
+    opacity:1 !important;
+    z-index:5;
+  }
+  .agap-brand { flex-wrap:wrap; }
+  .agap-map-label { position:static; display:inline-block; }
+  .agap-model-shift { grid-template-columns:1fr 30px 1fr; }
+  .agap-model-verdict { grid-column:1 / -1; padding:var(--agap-space-4); }
+  .agap-model-verdict strong { font-size:16px; }
+  .agap-model-label { flex-wrap:wrap; }
+  .agap-weather-summary { gap:var(--agap-space-4); }
+  .agap-weather-summary > div + div { padding-left:var(--agap-space-4); }
+}
+@media (max-width:800px) {
+  .block-container { margin:2.75rem 0 0; padding:var(--agap-space-4); border-radius:12px 12px 0 0; }
+  .agap-brand small { display:none; }
+  .agap-brand h1 { font-size:1rem !important; }
+  .agap-brand { gap:var(--agap-space-3); padding:var(--agap-space-3); }
+  .agap-model-cell { padding:var(--agap-space-4); }
+  .agap-model-value { font-size:26px; }
+  .agap-model-value small { display:none; }
+  .agap-model-position { flex-wrap:wrap; }
+  .agap-model-position span { margin-left:0; width:100%; }
+  .st-key-weather_timeline_panel, .st-key-weather_resident { padding:var(--agap-space-4); }
+  [data-testid="stForm"] { padding:var(--agap-space-4); }
+  [data-testid="stExpanderDetails"] { padding:var(--agap-space-4); }
+}
+@media (max-width:640px) {
+  /* Streamlit stacks columns here: show the chosen case and its primary action before the browse list. */
+  [data-testid="stColumn"]:has(.st-key-worklist_case_pane) { order:-1; }
+}
+@media (max-width:540px) {
+  .agap-disclaimer { flex-direction:column; gap:2px; }
+  .agap-disclaimer span + span::before, .agap-disclaimer b + span::before { content:none; }
+  .agap-brand h1 { order:3; flex-basis:100%; border-left:0; padding-left:0 !important; }
+  .st-key-screening_worklist_stage h3 { font-size:1.2rem !important; }
+  .agap-weather-summary { flex-wrap:wrap; row-gap:var(--agap-space-4); }
+  .agap-queue-counts, .agap-plan-summary { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .agap-plan-summary > div:nth-child(3) { border-left:0; }
+  .agap-queue-count + .agap-queue-count { border-left:0; }
+  .agap-queue-count:nth-child(even) { border-left:1px solid var(--agap-border); }
+  .agap-queue-count:nth-child(n+3) { border-top:1px solid var(--agap-border); }
+  .agap-plan-summary > div:nth-child(n+3) { border-top:1px solid var(--agap-border); }
+  .agap-case-progress { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .agap-recovery-comparison,.agap-recovery-checks { grid-template-columns:minmax(0,1fr); }
+}

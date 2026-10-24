@@ -1,0 +1,7 @@
+{
+  "source": "WorldPop 2020 constrained age-sex rasters, 1 km (CC BY 4.0), clipped to Laguna (geoBoundaries ADM2/ADM3)",
+  "method": "Adults 18+ = WorldPop 20+ bands plus 2/5 of the 15-19 band; each 1 km cell is assigned to an H3 cell and its municipality (border cells to the nearest polygon). Age-group shares spread each 5-year band evenly over its ages.",
+  "caveat": "Modelled population estimates, not the PSA census. Coverage = checks / these adults.",
+  "script": "scripts/build_municipal_adults.py",
+  "total_adults": 2288633
+}

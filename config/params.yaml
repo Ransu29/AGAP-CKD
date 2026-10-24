@@ -1,0 +1,257 @@
+# Single source of truth for every number used in the pipeline.
+# Change values here, never in code.
+# Simulator parameters are classified in config/parameter_register.yaml (SIM-04).
+
+seed: 2026
+n_repetitions: 200
+
+study_area:
+  pilot_area: "Laguna"        # configurable; public mode requires matching boundary
+  age_min: 18
+
+outcome:                      # abnormal initial screening flag (not a diagnosis)
+  egfr_threshold: 60          # mL/min/1.73 m^2
+  uacr_threshold: 30          # mg/g
+
+scenarios:
+  participation_mechanisms: [MCAR, MAR, MNAR]
+  heat_effect: [zero, weak, strong]
+
+models:
+  # Columns a model must never see: hidden outcomes and lab values, SIM-09 follow-up
+  # measurements and hypothetical acute events (SIM-10), Engine 1 hidden traits, and
+  # research-interest attributes (AT-06, E4-05).
+  forbidden_features: [creatinine, egfr, uacr, y_true, kidney_damage_true, creatinine_true, egfr_true, uacr_true,
+                       dm_true, htn_true, family_true, outdoor_true,
+                       creatinine_90d, uacr_90d, egfr_90d, abnormal_90d,
+                       hypothetical_acute_event_90d, hot_dry_score_90d, visit_uniform_90d,
+                       creatinine_180d, uacr_180d, egfr_180d, abnormal_180d,
+                       hypothetical_acute_event_180d, hot_dry_score_180d, visit_uniform_180d,
+                       persistent_abnormal, transient_abnormal,
+                       prior_screen_true, outdoor_hours_7d_true,
+                       research_interest, research_state, research_eligible,
+                       kidney_damage_true, creatinine_true, egfr_true, uacr_true, dm_true, htn_true,
+                       heart_true, stones_true, family_true, outdoor_true, bmi, dm_aware, htn_aware,
+                       medicine_true, community_heat, kidney_status]
+
+triage:
+  target_sensitivity: 0.90
+  # PRD v3 risk level (src/agap/triage.py, scripts/train_triage.py). Settings, not population claims.
+  risk_level:
+    seed_components: {train: 101, validation: 102, calibration: 103, sensitivity: 104, test: 105}
+    n_train: 10000
+    n_validation: 5000                # sets the cut-offs
+    n_test: 5000                      # held out: the benchmark is reported here
+    l2_C: 1.0
+    medium_min_sensitivity: 0.85     # Medium-or-High catches at least this share of abnormal screens
+    high_min_prevalence_multiple: 2.0
+    prevalence_scenarios: [0.08, 0.128, 0.18]
+    calibration_n: 200000
+
+# PRD v3 analyst view (src/agap/analyst.py, scripts/build_analyst.py). Display and method settings.
+analyst:
+  seed_component: 106
+  checks_period_end: "2026-10-23"     # demo date; the period is the 12 months ending here
+  period_months: 12
+  hide_below_checks: 10               # PRD v3 privacy: areas with fewer checks are hidden
+  fade_below_checks: 50
+  factors_min_checks: 30              # top reasons hidden below this
+  heat_index_hot_c: 41                # hot day: daily max heat index at or above this (PRD v3 design)
+
+allocation:
+  budget_tests: 500
+  slots_per_facility: 100
+  # hypothetical: one assumed point per municipality. yakap_register: PhilHealth YAKAP-accredited clinics
+  # (public geography only; fixture runs always use hypothetical points; scripts/prepare_clinic_locations.py).
+  # Capability and capacity stay assumed.
+  service_points: hypothetical
+  slots_per_registered_site: 20   # assumed screening panels per registered clinic per round
+  max_distance_km: 20
+  policies: [random, population_proportional, risk_based, risk_plus_exploration, risk_plus_unreported]
+  exploration_shares: [0.0, 0.1, 0.2, 0.3]
+  # Policy choice, not a population claim: minimum share of slots offered first to residents
+  # without a questionnaire (highest score first). Pure risk ranking already gives them some slots,
+  # so shares below that level change nothing; equal invitation coverage needs a share equal to
+  # their cohort share (demo.parity_share). See docs/critical_analysis_2026-10-23.md, section 2.
+  unreported_outreach_share: 0.5
+  coverage:                   # ALLOC-12: checked before allocation, never relaxed automatically
+    minimum_invitations_per_municipality: 0   # 0 = no requirement
+    minimum_invitations: {}                   # per-municipality overrides, e.g. {Calamba: 40}
+
+# Coordination workflow settings (frozen into each approved round).
+workflow:
+  unreachable_after_attempts: 3   # unanswered calls before staff may release the slot as unreachable
+
+# Aggregate (LGU / analyst) view: counts from 1 to min_cell_size - 1 are shown as "<min_cell_size"
+# so a small group cannot identify a resident (RA 10173 data minimisation). A setting, not evidence.
+privacy:
+  min_cell_size: 5
+
+h3:
+  main_resolution: 8
+  sensitivity_resolutions: [7]
+
+paths:
+  raw: data/raw
+  processed: data/processed
+  synthetic: data/synthetic
+  figures: outputs/figures
+  tables: outputs/tables
+
+# Simulator generators (SIM-03). Each value is classified, with its source or reasoning, in
+# config/parameter_register.yaml (SIM-04).
+simulator:
+  age_center: 40                      # years; centre of the age terms in the logistic generators
+  oldest_band_start: 80
+  oldest_band_max_age: 95             # the open 80+ WorldPop band is drawn uniformly over 80-95
+  adult_fraction_15_19: 0.4           # ages 18-19 are 2 of the 5 years in the 15-19 WorldPop band
+  traits:
+    # dm_intercept is calibrated to the FNRI 2023 NNS adult high-fasting-glucose marginal
+    # (scripts/calibrate_traits.py); the definition mismatch is recorded in the register.
+    dm_intercept: -2.2665
+    dm_log_odds_per_year: 0.035
+    htn_intercept: -1.7
+    htn_log_odds_per_year: 0.05
+    htn_dm_log_odds: 0.6
+    family_history_prevalence: 0.18
+    outdoor_work_prevalence: 0.30
+    # SIM-12: share of people with the condition who know it (an aware reporter answers Yes).
+    dm_awareness: 0.6
+    htn_awareness: 0.6
+  laboratory:                         # outcome-first synthesis consistent with outcome thresholds
+    renal_subtype_share: 0.65         # abnormal flags with low eGFR: subtype draw < this share
+    albumin_subtype_start: 0.45       # abnormal flags with high uACR: subtype draw >= this (overlap = both)
+    abnormal_egfr_range: [30, 59.9]   # mL/min/1.73 m^2
+    normal_egfr_range: [60, 120]   # truncation bounds: continuous with the abnormal range (SIM-11)
+    normal_egfr_mean: 95           # mL/min/1.73 m^2; bell-shaped underlying eGFR without damage
+    normal_egfr_sd: 15
+    abnormal_uacr_median: 80          # mg/g; floored at outcome.uacr_threshold
+    normal_uacr_median: 10            # mg/g; capped at normal_uacr_max
+    normal_uacr_max: 29.9
+    uacr_log_sd: 0.5
+  # PRD v3 risk-check development cohort (src/agap/simulate/risk_check.py). Everyone has labs, as in
+  # the population surveys behind the Thai, SCORED and Long An scores. Classified in the register.
+  risk_check:
+    age_groups: ["18-39", "40-49", "50-59", "60-69", "70+"]
+    age_group_bounds: [[18, 39], [40, 49], [50, 59], [60, 69], [70, 95]]
+    # Laguna adult age-group shares and female share, derived from WorldPop 2020 age-sex rasters
+    # by scripts/calibrate_risk_check.py (the PSA census tables are not in the repository).
+    age_group_shares: [0.5901, 0.1835, 0.1206, 0.0682, 0.0376]
+    female_share: 0.5137
+    target_prevalence: 0.1276        # measured abnormal kidney screen, population level (Tran 2017)
+    outcome_intercept: -3.4385       # solved by scripts/calibrate_risk_check.py for target_prevalence
+    odds_ratios:                     # effects on the underlying kidney state (see register for sources)
+      age_40_49: 1.8
+      age_50_59: 1.8
+      age_60_69: 4.1
+      age_70_plus: 8.3
+      female: 1.2
+      diabetes: 2.5
+      hypertension: 2.3
+      kidney_stones: 2.8
+      heart_disease_stroke: 1.75
+      family_history: 1.75
+      overweight: 1.1
+      obese: 1.4
+      stopped_medicine: 1.2
+      heavy_outdoor_work: 1.3
+      community_heat_per_sd: 1.2     # synthetic community exposure; never a model input (ADR 0001)
+    traits:
+      kidney_stone_prevalence: 0.05
+      heart_disease_intercept: -3.6  # log-odds at age 40
+      heart_disease_log_odds_per_year: 0.06
+      bmi_mean: 24.0                 # kg/m^2
+      bmi_sd: 4.5
+      bmi_overweight_cut: 23.0       # WHO 2004 Asian cut-offs
+      bmi_obese_cut: 27.5
+    reporting:
+      dm_awareness: 0.6              # share of people with diabetes who know it
+      htn_awareness: 0.6
+      unaware_dont_know: 0.4         # unaware true cases answering "I don't know" (else No)
+      negative_dont_know: 0.08       # people without the condition answering "I don't know"
+      other_item_dont_know: 0.05     # heart disease/stroke, kidney stones, family history, outdoor work
+      bmi_dont_know: 0.15
+      bp_measured_past_year: 0.5     # shown to people not answering Yes to hypertension
+      medicine_shares: [0.5, 0.15, 0.15, 0.2]   # regularly, sometimes miss, stopped, no medicine given
+      told_abnormal_given_damage: 0.1   # already told something was wrong; routed out of the risk check
+      tested_normal_past_year: 0.05
+    laboratory:                      # truncated, continuous underlying values (no pile-up at thresholds)
+      normal_egfr_range: [60, 120]
+      normal_egfr_mean: 95
+      normal_egfr_sd: 15
+  analyst_checks:                     # simulated checks behind the analyst view (src/agap/analyst.py)
+    total_checks: 4300                # checks in the 12-month demo period, spread by WorldPop adults
+    channel_shares: {app: 0.39, field: 0.41, sms: 0.20}
+    sms_reminder_opt_in: 0.6          # SMS checks that accept reminders
+    done_reply_share: 0.3             # Medium/High SMS opt-ins who reply DONE
+    field_sync_lag_hours: [2, 72]     # time since a municipality's last field sync
+  observation:                        # MAR/MNAR reporting, invitation and completion (OBS-01)
+    report_age_center: 45
+    report_log_odds_per_year: 0.015
+    report_log_odds_per_km: -0.025
+    completion_log_odds_per_km: -0.025  # also prices assigned-distance changes in allocation
+    proximity_scale_km: 40
+    invitation_mcar: 0.3
+    invitation_nonreporter: [0.12, 0.10]  # base probability, proximity coefficient
+    invitation_reporter: [0.45, 0.25]
+  report_details:                     # Engine 1 schema v2 fields (SIM-02)
+    prior_screen_rate: 0.10           # age 40 without DM or HTN
+    prior_screen_log_odds_per_year: 0.02
+    prior_screen_dm_log_odds: 1.0
+    prior_screen_htn_log_odds: 0.8
+    outdoor_hours_worker: [20, 56]    # hours in the 7 days ending on the event date
+    outdoor_hours_other: [0, 4]
+    event_days_before_available: [0, 7]
+
+# Engine 4 research gateway demonstration (src/agap/research.py). Assumed shares.
+research:
+  interest_shares: {interested: 0.35, declined: 0.15, not expressed: 0.50}
+  later_withdrawal_share: 0.10   # of interested residents, to demonstrate withdrawal (E4-06)
+
+# Engine 1 report timing (src/agap/experiment.py::add_report_details). Negative values mean the report
+# arrives after the cutoff and is masked at prediction time (E1-08).
+reporting:
+  availability_days_before_cutoff: [0, 14]
+
+# SIM-09 longitudinal scenario (src/agap/longitudinal.py). Sources: config/parameter_register.yaml.
+longitudinal:
+  followup_days: [90, 180]
+  persistence_day: 180        # abnormal at day 0 and here = persistent abnormal pattern (not CKD)
+  creatinine_cv: 0.05         # within-person: 4.4-4.7% healthy (EuBIVAS), 5.4% CKD outpatients
+  uacr_cv: 0.30               # within-person: ~30-33% in CKD outpatients (spot and first-morning)
+  egfr_decline_per_year: 1.0  # healthy adults 0.4-1.1 per year (systematic review; Baba et al.)
+  acute_event_rate: 0.02      # assumed (hypothetical event): age 40, no DM/HTN, hot-dry score 0; heat uses heat_or
+  acute_creatinine_factor: 1.5  # KDIGO AKI stage 1 creatinine threshold, used only to size the change
+
+# Engine 2 exploratory surveillance (src/agap/surveillance.py).
+surveillance:
+  monthly_sample: 1000        # synthetic adults screened per month, Jan 2021 to Sep 2026
+  holdout_months: 12          # last months used to compare forecasts
+  horizons: [1, 3]            # forecast horizons in months
+
+# Runnable v0.1 profile. Clinical/exposure/facility parameters below are assumptions.
+prototype:
+  geography_mode: fixture     # public requires make collect first; never silently falls back
+  n_train: 3000
+  n_validation: 1500
+  n_deployment: 3000          # separate later cohort; 500 slots remain meaningfully scarce
+  repetitions: 5
+  heat_or: 1.2
+  mechanism: MAR
+  # Saved model whose scores rank invitations in the allocate, spatial and benchmark stages. Matches the
+  # app's default planning model so the default plan equals metrics.csv (clinical = questionnaire only).
+  allocation_model: clinical
+  min_validation_positives: 10
+  report_rate: 0.30
+  completion_rate: 0.70
+  weight_quantile: 0.99
+  min_probability: 0.03
+  outcome_intercept: -3.5
+  age_log_odds_per_year: 0.045
+  dm_log_odds: 1.0
+  htn_log_odds: 0.8
+  family_log_odds: 0.35
+  outdoor_log_odds: 0.2
+  report_mnar_log_odds: -0.8
+  completion_mnar_log_odds: -0.7
+  assumed_panel_cost_php: 500

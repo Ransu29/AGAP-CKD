@@ -1,0 +1,5 @@
+extends: params.yaml
+prototype:
+  geography_mode: public
+allocation:
+  service_points: yakap_register

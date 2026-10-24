@@ -1,0 +1,39 @@
+AGAP-CKD — References (APA 7th edition)
+
+Source: the project proposal's reference list, reproduced in its original order.
+The method references for the PRD v3 risk-level model (Thai simplified score, SCORED, prevalence,
+odds ratios) are listed at the end of notebooks/03_retrain_prd_v3_model.ipynb.
+
+Bondarenko, M., Kerr, D., Sorichetta, A., & Tatem, A. J. (2020). Census/projection-disaggregated gridded population datasets for 189 countries in 2020 using Built-Settlement Growth Model (BSGM) outputs [Data set]. WorldPop. https://doi.org/10.5258/SOTON/WP00684
+
+Copernicus Climate Change Service. (2019). ERA5-Land hourly data from 1950 to present [Data set]. Climate Data Store. https://doi.org/10.24381/cds.e2161bac
+
+Diggle, P. J., Menezes, R., & Su, T.-l. (2010). Geostatistical inference under preferential sampling. Journal of the Royal Statistical Society: Series C (Applied Statistics), 59(2), 191–232. https://doi.org/10.1111/j.1467-9876.2009.00701.x
+
+DOST-PAGASA. (2026, September 23). Climate advisory for "Very Strong" El Niño. https://www.pagasa.dost.gov.ph/press-release/34
+
+H3. (n.d.). Tables of cell statistics across resolutions. https://h3geo.org/docs/core-library/restable/
+
+Hemodialysis tops the list of procedures paid for by PhilHealth. (2025, September 15). Malaya Business Insight. https://malaya.com.ph/news/national-news/list-of-procedures-paid-for-by-philhealth
+
+Kidney Disease: Improving Global Outcomes (KDIGO) CKD Work Group. (2024). KDIGO 2024 clinical practice guideline for the evaluation and management of chronic kidney disease. Kidney International, 105(4S), S117–S314. https://doi.org/10.1016/j.kint.2023.10.018
+
+Little, R. J. A. (2021). Missing data assumptions. Annual Review of Statistics and Its Application, 8, 89–107. https://doi.org/10.1146/annurev-statistics-040720-031104
+
+Muñoz-Sabater, J., Dutra, E., Agustí-Panareda, A., Albergel, C., Arduini, G., Balsamo, G., Boussetta, S., Choulga, M., Harrigan, S., Hersbach, H., Martens, B., Miralles, D. G., Piles, M., Rodríguez-Fernández, N. J., Zsoter, E., Buontempo, C., & Thépaut, J.-N. (2021). ERA5-Land: A state-of-the-art global reanalysis dataset for land applications. Earth System Science Data, 13, 4349–4383. https://doi.org/10.5194/essd-13-4349-2021
+
+O'Callaghan-Gordo, C., Shivashankar, R., Anand, S., Ghosh, S., Glaser, J., Gupta, R., Jakobsson, K., Kondal, D., Krishnan, A., Mohan, S., Mohan, V., Nitsch, D., Praveen, P. A., Tandon, N., Narayan, K. M. V., Pearce, N., Caplin, B., & Prabhakaran, D. (2019). Prevalence of and risk factors for chronic kidney disease of unknown aetiology in India: Secondary data analysis of three population-based cross-sectional studies. BMJ Open, 9(3), e023353. https://doi.org/10.1136/bmjopen-2018-023353
+
+Philippine Genome Center. (n.d.-a). Genomic association studies in Filipinos on treatment, diagnosis and risk assessment of type 2 diabetes mellitus and its related medical condition. https://pgc.up.edu.ph/research-development/program-on-health/genomic-association-studies-in-filipinos-on-treatment-diagnosis-and-risk-assessment-of-type-2-diabetes-mellitus-and-its-related-medical-condition/
+
+Philippine Genome Center. (n.d.-b). Research projects: Protein, Proteomics and Metabolomics Facility. https://pgc.up.edu.ph/protein-proteomics-and-metabolomics-facility/research-projects/
+
+Philippine Health Insurance Corporation. (2026). Accredited health facilities [Directory; updated July 31, 2026]. https://www.philhealth.gov.ph/partners/providers/facilities/accredited/
+
+Philippine Health Research Ethics Board. (2022). National ethical guidelines for research involving human participants. https://www.pchrd.dost.gov.ph/wp-content/uploads/2023/05/2022-NEGRIHP_Official-Gazatte_Ver-5-1.pdf
+
+Pillai, A., Murage, P., & Haque, F. (2025). Understanding the relationship between climate change-related meteorological factors and chronic kidney disease (CKD) and CKD of unknown origin (CKDu) in low- and middle-income countries: A systematic review and meta-analysis. Environmental Research, 286, 122928. https://doi.org/10.1016/j.envres.2025.122928
+
+Raghunathan, T. E. (2021). Synthetic data. Annual Review of Statistics and Its Application, 8, 129–140. https://doi.org/10.1146/annurev-statistics-040720-031848
+
+Republic Act No. 10173. (2012). Data Privacy Act of 2012. National Privacy Commission. https://privacy.gov.ph/data-privacy-act/

@@ -1,0 +1,9 @@
+# NFR-07 full profile with collected public geography and ERA5-Land climate:
+# 10,000 residents per cohort and 200 repetitions per scenario (sizes as in full.yaml).
+# make experiments CONFIG=config/climate_full.yaml
+extends: climate.yaml
+prototype:
+  n_train: 10000
+  n_validation: 5000
+  n_deployment: 10000
+  repetitions: 200

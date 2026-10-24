@@ -1,0 +1,8 @@
+# NFR-07 full profile: 10,000 residents per cohort and 200 repetitions per scenario.
+# make experiments CONFIG=config/full.yaml   (see make benchmark for the expected runtime)
+extends: params.yaml
+prototype:
+  n_train: 10000
+  n_validation: 5000
+  n_deployment: 10000
+  repetitions: 200

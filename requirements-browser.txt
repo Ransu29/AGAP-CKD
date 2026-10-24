@@ -1,0 +1,2 @@
+# Optional verification tooling; browser installation is a separate explicit step.
+playwright==1.64.0

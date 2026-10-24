@@ -1,0 +1,6 @@
+# Available historical weather context, questionnaire-only judge scores.
+# The full seasonal-climate model still requires config/climate.yaml inputs.
+extends: public.yaml
+weather_preview:
+  enabled: true
+  processed_directory: data/processed/weather/laguna

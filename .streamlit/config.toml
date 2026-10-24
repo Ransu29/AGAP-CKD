@@ -1,0 +1,24 @@
+[theme]
+# Framed sheet: a green-grey frame (workspace.css) around a white working sheet.
+# Brand teal is the one hue: the primary action, the selected tab and the main data.
+primaryColor = "#12796d"
+backgroundColor = "#ffffff"
+secondaryBackgroundColor = "#f5f7f6"
+textColor = "#16241f"
+font = "sans-serif"
+showWidgetBorder = true
+borderColor = "#dde4e0"
+dataframeBorderColor = "#e8ecea"
+dataframeHeaderBackgroundColor = "#ffffff"
+baseRadius = "8px"
+buttonRadius = "8px"
+
+[client]
+# Hide the developer toolbar (Deploy, rerun menu); the workspace has its own controls.
+toolbarMode = "viewer"
+
+[browser]
+gatherUsageStats = false
+
+[server]
+enableStaticServing = true

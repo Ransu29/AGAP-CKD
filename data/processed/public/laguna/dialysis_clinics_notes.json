@@ -1,0 +1,16 @@
+{
+  "register_id": "FDC-20260930",
+  "register_title": "List of Accredited Freestanding Dialysis Clinics for CY 2026, updated as of September 30, 2026",
+  "register_url": "https://www.philhealth.gov.ph/partners/providers/facilities/accredited/FDC_093026.pdf",
+  "register_sha256": "b6c9ccce2bb7de8aa414dab9da3404f8de9616647dd2fa9f18214bc7c0418fa9",
+  "province": "Laguna",
+  "clinics": 40,
+  "location_precision": {
+    "barangay": 25,
+    "municipality": 10,
+    "osm": 5
+  },
+  "osm_source": "OpenStreetMap contributors (ODbL), Overpass API query of Laguna",
+  "geocoder": "OpenStreetMap Nominatim, barangay-level queries",
+  "limitations": "Accreditation does not establish current capacity, schedule, cost, test capability or acceptance of new patients. Approximate locations mark a barangay or municipality centre, not the building."
+}
